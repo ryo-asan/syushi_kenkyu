@@ -1,0 +1,135 @@
+\documentclass[a4paper,11pt]{ltjsreport}
+%%%%%%%% パッケージ %%%%%%%%
+% Math
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs=true} % Changeable to T/F whenever.
+\usepackage{bm}
+
+% Image
+\usepackage{graphicx}
+%\usepackage[draft]{graphicx} % Hide images to improve compilation speed.
+\usepackage{here}
+
+% Display
+\usepackage{ascmac}
+\usepackage{askmaps}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{listings,jvlisting}
+\usepackage[dvipsnames]{xcolor}
+%\usepackage[dvipsnames,dvipdfmx]{xcolor} % For dvipdf.
+
+% Usage: \fontsize{?pt(size)}{?mm(line spacing)}\selectfont ~
+\usepackage{type1cm}
+% Usage: /**/ => \begin{comment}\end{comment}
+\usepackage{comment}
+
+\usepackage{SekineLabMacro}
+\usepackage{silence}
+\WarningFilter{hyperref}{Token not allowed in a PDF string}
+% Display
+\usepackage[%
+	luatex,%
+	pdfencoding=auto,%
+	setpagesize=false,%
+	bookmarks=true,%
+	%bookmarksdepth=tocdepth,%
+	bookmarksnumbered=true,%
+	hidelinks,%
+	%colorlinks=true,%
+	%linkcolor=blue,%
+]{hyperref}
+%% LaTeXのrefを改良したい．(https://tsuu32.hatenablog.com/entry/2019/10/23/190000)
+\def\figureautorefname~#1\null{図#1}
+\def\tableautorefname~#1\null{表#1}
+\newcommand*{\jref}[1]{\autoref{#1}}
+\newcommand*{\eqjref}[1]{式\eqref{#1}}
+
+%%%%%%%% 用途に応じて追加してください．%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 数学記号略記定義
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\rnum}[1]{\expandafter{\romannumeral #1}}
+\newcommand{\Rnum}[1]{\uppercase\expandafter{\romannumeral #1}}
+
+\newcommand{\cs}{,\ }%数式中のカンマ
+
+\newcommand{\abs}[1]{\left \lvert #1 \right \rvert}%絶対値
+\newcommand{\norm}[1][\,\cdot\,]{\left \lVert #1 \right \rVert}%ノルム
+\newcommand{\ip}[2]{\left \langle #1, #2 \right \rangle}%内積
+
+\newcommand{\N}{\mathbb{N}}%自然数
+\newcommand{\Z}{\mathbb{Z}}%整数
+\newcommand{\Q}{\mathbb{Q}}%有理数
+\newcommand{\R}{\mathbb{R}}%実数
+\newcommand{\C}{\mathbb{C}}%複素数
+\newcommand{\K}{\mathbb{K}}%係数体
+
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calb}{\mathcal{B}}%定義域がXの全体となる有界な線形作用素全体の集合
+\newcommand{\cald}{\mathcal{D}}%定義域
+\newcommand{\calr}{\mathcal{R}}%値域
+
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+
+\DeclareMathOperator*{\esssup}{ess~sup}
+
+\def\Cpp{\texorpdfstring{C\raisebox{0.5ex}{\tiny\textbf{++}}}{C++}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% タイトル
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%% ここから順序変更不可，内容変更可 %%%%%%%%
+\title{フィッツヒュー・南雲方程式の解に特化した\\精度保証付き数値計算法} %タイトル
+\date{2024年12月25日} %日付
+\author{浅野  凌一郎} %氏名
+
+\begin{document}
+
+\JYear{令和6年度} %年度
+\StudentNumber{2131006} %学生番号
+%%%%%%%% ここまで順序変更不可，内容変更可 %%%%%%%%
+
+\maketitle
+\setcounter{tocdepth}{2} %目次の深さ設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% マニュアル
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{documents/Manual} % マニュアル
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 目次
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 本文
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{documents/1_Introduction}  % はじめに
+\input{documents/2_Preparation}   % 準備
+\input{documents/3_Existing}      % 既存手法
+\input{documents/4_Proposing}     % 提案手法
+\input{documents/5_Experiment}    % 数値実験
+\input{documents/6_Conclusion}    % おわりに
+\input{documents/Acknowledgement} % 謝辞
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 参考文献
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{documents/References} % bibファイル
+\bibliographystyle{junsrt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 付録
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{documents/Appendix} % ソースコード
+
+\end{document}

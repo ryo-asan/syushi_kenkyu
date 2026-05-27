@@ -1,0 +1,343 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{準備}\label{Preparation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{ベクトル空間}
+%%%%%%%%%%%%%%%%% [[[[ベクトル空間]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+以下，本論文では\(\mathbb{R}\)を実数全体の集合とし，\(\mathbb{C}\)を複素数全体の集合とする．
+
+\subsection{\(\mathbb{R}\)上のベクトル空間}
+集合\(X\)が\(\mathbb{R}\)上のベクトル空間であるとは，任意の\(x,y \in X\)
+と\(\alpha \in \mathbb{R}\)に対して，和
+\begin{align}
+    x+y\in X
+\end{align}
+とスカラー倍
+\begin{align}
+    \alpha x \in X
+\end{align}
+が定義されて，任意の\(x,y,z \in X\)と
+\(\alpha,\beta \in \mathbb{R}\)に対して以下の性質を満たすことをいう．
+\begin{enumerate}[1.]
+    \item \( x+y =y+x   \)
+    \item \( (x+y)+z =x+(y+z)  \)
+    \item \(x+0=x\)を満たす\(0 \in X\)が存在する．
+    \item 任意の\(x \in X\)に対して，\(-x \in X\)が存在し，\(x+(-x)=0\)を満たす．
+    \item \(1x=x\)
+    \item \((\alpha \beta)x=\alpha(\beta x)\)
+    \item \((\alpha+\beta)x=\alpha x +\beta x\)
+    \item \(\alpha(x+y)=\alpha x+\beta y\)
+\end{enumerate}
+\subsection{ノルム空間}
+ベクトル空間\(X\)から\([0,\infty)\)への写像\(\norm{\cdot}_X\)が
+\begin{enumerate}[1.]
+    \item \(\norm{\cdot}_X=0\Leftrightarrow x = 0\)
+    \item 任意の\(x \in X,\alpha \in \mathbb{R}\)に対して，\({|\alpha x|}_X={|\alpha|\norm{x}}_X\)
+    \item 任意の\(x,y\in X\)に対して，\({\norm{x+y}}_X\leq{\norm{x}}_X+{\norm{y}}_X\)
+\end{enumerate}
+を満たすとき，ノルムであるという．ノルムが定義されたベクトル空間をノルム空間という．
+
+\subsection{ノルムの同値性}
+ノルム空間\(X\)の二つのノルム\({\norm{\cdot}}_a,{\norm{\cdot}}_b\)が同値であるとは
+正の実数\(c_1,c_2\)が存在して，任意の\(x\in X\)に対して
+\(c_1{\norm{x}}_b\leq {\norm{x}}_a \leq c_2{\norm{x}}_b\)を満たすことを言う．
+
+\subsection{内積空間}%ここでノルムとの関係を述べる%
+ベクトル空間\(X\)に対し，\(X \times X \)から\(\mathbb{R}\)への写像
+\({(\cdot, \cdot)}_X\) が任意の \(x,y,z \in X, \alpha \in \mathbb{R} \)に対して
+\begin{enumerate}[1.]
+    \item \( {(x,y)}_X={(y,x)}_X \)
+    \item \( {(\alpha x, y)}_X = \alpha{(x, y)}_X \)
+    \item \({(x + y, z)}_X = {(x, z)}_X + {(y, z)}_X\)
+    \item \( {(x, x)}_X \geq 0 \)
+    \item \( (x, x) = 0 \Leftrightarrow x = 0 \)
+\end{enumerate}
+を満たすとき内積であるという．内積が定義されているベクトル空間を内積空間という．
+内積空間\(X\)で
+\begin{align}
+    {\norm{ u }}_X \coloneqq \sqrt{{(u,u)}_X}
+\end{align}
+とすると，\({\norm{\cdot}}_X\)は\(X\)におけるノルムになる．
+これを内積から導かれるノルムという．この意味で，
+内積空間はノルム空間でもある．
+また，任意の \(x, y \leq X \)に対して
+\begin{align}
+  |\qty(x,y)_X| \leq \norm{x}_X \norm{y}_X
+\end{align}
+が成り立つ．
+これをSchwarzの不等式という．
+\subsection{直交性}
+内積空間\(X\)において，
+\begin{equation}
+  (x,y)=0
+\end{equation}
+が成り立つとき，\(x\)と\(y\)は直交するという．この時
+\begin{equation}
+  {\norm{x+y}}^2_X=\norm{x}^2_X + \norm{y}^2_X
+\end{equation}
+となる．
+\subsection{行列ノルム}
+まず，正方行列\(A\in \mathbb{C}\)に固有値を\(\lambda_i\)としたとき，スペクトル半径\(\rho\qty(A)\)を
+\begin{align}
+   \rho\qty(A) \coloneqq \max_i \qty|\lambda_i|
+\end{align}
+とする．また\(A = \qty(a_{i,j})\in \mathbb{C}^{n*m}\)に対する行列の２ノルムを
+\begin{align}
+   \norm{A}_E=\norm{A}_2\coloneqq \sqrt{\rho\qty(A^TA)}
+\end{align}
+と定義する．ここで\(A^T\)は\(A\)の転置行列といい，行列\(A\)の行成分と列成分を入れ替えたものである．
+%%%%%%%%%%%%%%%%% [[[[Banach空間とHilbert空間]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Banach空間とHilbert空間}
+
+\subsection{収束列とCauchy列}
+ノルム空間\(X\)とそのノルム\(\norm{\cdot}\)を取り，\(X\)の点列\(\{x_n\}^{\infty}_{n=1}\)が点\(x^*\in X\)に対し，
+\begin{align}
+  \norm{x_n-x^*}_X\rightarrow 0,\;\;(n\rightarrow \infty)
+\end{align}
+となるとき，\(\{x_n\}^{\infty}_{n=1}\)は\(x^*\)に収束する．
+\begin{align}
+  \norm{x_n-x_m}_X\rightarrow 0,\;\;(n,m\rightarrow \infty)
+\end{align}
+\subsection{Banach空間}%ここで完備の話をする%
+完備とは，任意のCauchy列が収束列となるノルム空間のことである．
+完備なノルム空間をBanach空間という．
+したがって，Banach空間\(X\)の任意のCauchy列は，
+\(X\)の点に収束する．
+\subsection{直交射影}
+\(U\)をHilbert空間\(X\)の閉部分空間とする．\(U^\bot\)をHilbert空間
+\begin{align}
+    U^{\bot} \coloneqq \qty{u\in X\;\;|\;\;\qty(u,v)_X=0, \;\;v\in U}
+\end{align}
+で定める．任意の\(u\in X\)は
+\begin{align}
+    u=u_1+u_2, \;\; u_1\in U,u_2\in U^\bot
+\end{align}
+と一意に表される．\(u_1\)を\(u\)の\(U\)上への直交射影という．
+\newpage
+\section{作用素とその微分}
+
+\subsection{作用素}
+線形空間\(X\)の任意の点\(u\)に線形空間\(Y\)の点\(v=F(u)\)を対応させる写像\(F\)を，\(X\)から\(Y\)への作用素という．
+本節では，作用素の基本事項をまとめる．
+\subsection{線形作用素}
+作用素\(F:X\rightarrow Y\)と任意の\(a,b\in \mathbb{C}\), \(u,v\in X\)に対し，
+\begin{align}
+    F(au+bv)=aF(u)+bF(v)
+\end{align}
+が成立するとき，\(F\)を線形作用素とする．
+
+\subsection{連続性と有界性}
+ノルム空間\(X,Y\)の作用素\(T : X \rightarrow Y\)が連続であることを，任意の\(u\in X\)に対し，
+\(u_n\rightarrow u,(n\rightarrow \infty)\)ならば\(T(u_N)\rightarrow T(u),\;\;(n\rightarrow \infty)\)
+が成立すると定義する．また，ある非負定数\(M\)が存在して，
+\begin{align}
+    \norm{T(u)}_Y \leq M \norm{u}_X,\;\; \forall u\in X
+\end{align}
+が成り立つとき，\(T\)は有界であるという．特に，線形作用素の場合，有界性と連続性は同値になる．
+\subsection{作用素ノルム}
+\(X, Y\) を Banach 空間とする．\(X\) から \(Y\) への有界線形型作用素で定義域が \(X\) 全体であるもの全体
+の集合を \(L(X, Y )\) とする．\(L(X, Y )\) はノルムを
+\begin{align}
+    \norm{T}_{L(X,Y)} \coloneqq \sup\limits_{u \in X \backslash \{ 0 \} }\dfrac{\norm{Tv}_Y}{\norm{v}_X}
+\end{align}
+とするとBanach空間になる．
+\subsection{compact作用素}
+Banach 空間 \(X\)，\(Y\) の作用素 \(T : X \rightarrow Y\) が連続であり，
+かつ \(X\) の任意の有界点列 \(\qty{u_n}^\infty_{n=1}\) に対し，
+\(\qty{T(un)}^\infty_{n=1}\) が収束する部分列を含むとき，\(T\) は compact であるという．以下，compact 作用素に
+関する性質を述べる．
+\begin{定理} 
+    \(X,Y,Z\) を Banach 空間とする．
+    \begin{enumerate}[(1)]
+        \item \( A:X\rightarrow Y \)を連続線形作用素，\(B:Y\rightarrow Z\) を compact 線形作用素とする．
+        このとき，\(BA:X\rightarrow Z\) は compact 線形作用素である．
+        \item \(A:X\rightarrow Y\) を compact 線形作用素，\(B:Y\rightarrow Z\) を連続線形作用素とする． 
+        このとき，\(BA:X\rightarrow Z\) は compact 線形作用素である．
+    \end{enumerate}
+\end{定理}
+
+\subsection{埋め込み作用素}
+\(X,Y\) を \(X \in Y\) となるノルム空間とする．恒等写像 \(I_{X \hookrightarrow Y}:X \rightarrow Y \) 
+が連続であるとき，\(X\) は \(Y\)に埋め込まれているといい，\(X \hookrightarrow Y\) と表す．
+また，\(I_{X \hookrightarrow Y}:X \rightarrow Y \) を埋め込み作用素，または埋め込みという．
+特に \(I_{X \hookrightarrow Y}\) が compact 作用素であるとき，compact な埋め込みと呼ぶ．
+\(I_{X \hookrightarrow Y}:X \rightarrow Y \) の連続性は
+\begin{align}
+    \norm{u}_Y \leq C\norm{u}_X
+\end{align}
+となる\(C \geq 0\)の存在，すなわち有界性と同値である．\(C\)を埋め込み定数と呼び，
+特に微分方程式の解に対する精度保証では，埋め込み定数の定量的評価が重要となる．
+\subsection{Fr\'{e}chet微分}
+\(X, Y\) を Banach 空間とし， 開部分集合 \(U \in X\) とする．定義域を \(D(f) = U\) とする \(U\) から \(Y\)
+への作用素 \(f\) は \(U\) 上で連続とする．任意の \(v \in U\) において Fr\'{e}chet 微分可能であるとは， ある点
+\(v \in U\) に対し，\(v + h \in U\) となる任意の\(h\in X\)について，
+\begin{align}
+    \dfrac{ \norm{ f(v+h) - f(v) - f'\qty[v]h }_Y }{\norm{h}_X}\rightarrow 0,(h\rightarrow 0)
+\end{align}
+を満たす線形作用素 \(f'\qty[v] \in L(X, Y ) \)が存在するとき， 作用素 \(f\) は点 \(v\) において Fr\'{e}chet 微分可能
+といい，\( f'\qty[v] \in L(X,Y) \) を f の点 \(u\) における Fr\'{e}chet 微分と呼ぶ．
+
+%%%%%%%%%%%%%%%%% [[[[線形汎関数と共役空間]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{線形汎関数と共役空間}
+
+\subsection{汎関数}
+線形空間\(X\)またはその部分集合\(M\)の要素\(u\)に
+複素数(または実数)\(f(u)\)を対応させる写像を汎関数という．
+\subsection{共役空間}
+\(X\)をBanach空間とする．\(X\)上の有界線形型汎関数全体の集合を\(X^{-1}\)と書き，\(X\)の共役空間という．
+\(X^{-1}\)はノルムを
+\begin{align}
+    \norm{f}_{X^{-1}}
+    \coloneqq 
+    \sup\limits_{u \in X \backslash \{ 0 \} }\dfrac{|f(v)|}{\norm{v}_X}
+\end{align}
+とするとBanach空間になる．
+\subsection{Rieszの表現定理}
+\begin{定理} 
+  Hilbert 空間 \(\mathcal{H} \) の内積を 
+  \( ( x, y)_{\mathcal{H}} ,\quad (\forall{x, y} \in \mathcal{H}) \) 
+  と記し， 内積から誘導されたノルムを
+  \(\norm{x}_\mathcal{H} \coloneqq \sqrt{( x, x )_{\mathcal{H}}},\quad(\forall x \in \mathcal{H}) \)
+  と記すとき， 以下が成立する．
+  \begin{enumerate}[(a)]
+      \item 任意の有界線形汎関数 \(f \in \mathcal{H}^{-1}\) に対して， ある \(v_f \in \mathcal{H}\) が存在し，\(f\) は
+      \begin{align}
+          f(x)=( x,v_f ) \quad (x\in \mathcal{H})
+      \end{align}
+      のように表現できる．\(v_f\)は\(f\)から一意に定まり\(\norm{v_f}_\mathcal{H}=\norm{f}\)となる．
+      \item 写像\(\Phi:\mathcal{H}^{-1}\rightarrow \mathcal{H}\)，\(f\mapsto v_f\)は全単射で等長な線形写像となる．
+  \end{enumerate}
+\end{定理}
+\section{関数空間の定義}
+\(p \in [1, \infty) \)に対し,\(L^p(\Omega)\) を 
+\(\Omega\) 上で \(p\) 乗 Lebesgue 可積分な関数全体の集合とする．
+\(L^p(\Omega)\)は，
+\begin{align}
+    \norm{u}_{L^p}=\qty(\int_\Omega\qty|u(x)|^p dx)^{\frac{1}{p}}
+\end{align}
+をノルムとして Banach 空間となる．特に \(p = 2\) のとき，\(L^2(\Omega)\) は内積とノルム
+\begin{align}
+    (u,v)_{L^2}\coloneqq\int_\Omega u(x) v(x)dx 
+\end{align}
+のもとで Hilbert 空間となる． 
+\(L^\infty(\Omega)\) は \(\Omega\) 上で本質的に有界な関数の全体を表し，
+\begin{align}
+    \norm{u}_{L^\infty}=\text{ess}\mathrm{sup}|u(x)|
+\end{align}
+をノルムとしてBanach空間となる．
+\(s\)を正の実数として，\(H^1_0(\Omega)\)を\(s\)階の\(L^2\text{-}\mathrm{Sobolev}\)空間とする．
+\(H^1_0\qty(\Omega)\)を
+\begin{align}
+    H^1_0(\Omega) \coloneqq \qty{u\in H^1(\Omega)\;\;|\;\;u=0\;\text{on}\;\partial\Omega}
+\end{align}
+で定義する．\(H^1_0\qty(\Omega)\)には内積
+\begin{align}
+    (u,v)_{H^1_0}=\qty(\nabla u,\nabla v)_{L^2}
+\end{align}
+が定義され,\(H^1_0\qty(\Omega)\)はこの内積の下でHilbert空間となる．
+\(H^{-1}\qty(\Omega)\)を\(H^1_0\qty(\Omega)\)の共役空間とする．
+つまり，\(H^{-1}\qty(\Omega)\)のノルムは
+\begin{align}
+    \norm{T}_{H^{-1}\qty(\Omega)}
+    = 
+    \sup\limits_{v \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+    \dfrac{\qty|( T,v )|}{\norm{v}_{H^1_0}}
+\end{align}
+で定義される．
+%%%%%%%%%%%%%%%%% [[[[Newton-Kantorovichの定理]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Newton-Kantorovichの定理}
+% \begin{定理} (Newton-Kantorovich)\\
+%     ある\([\hat{u}]\in X\)に対して，\(\mathcal{F}'\qty[\hat{u}]\)
+%     は全単射であり，次の不等式を満たす定数 \( a > 0 \) が存在すると仮定する．
+%     \begin{align}
+%        \norm{\mathcal{F}'\qty[\hat{u}]^{-1} \mathcal{F}\qty(\hat{u})}_X \leq a
+%     \end{align}
+%     \(\bar{B}(\hat{u}, 2a)\) を，\(\hat{u}\) を中心とし，半径 \(2a\) の \(X\) の閉球とする．
+%     開球 \(D\) が \(\bar{B}(\hat{u}, 2a) \subset D\) を満たし，かつ以
+% 下の不等式を満たす \(b\) が存在すると仮定する．
+% \begin{align}
+%     \norm{\mathcal{F}'\qty[\hat{u}]^{-1} \qty(\mathcal{F}'\qty[v]-\mathcal{F}'\qty[w])}_{X , X}
+%     \leq
+%     b\norm{v-w}_X\;\;\forall v,w \in \bar{B}\qty(\hat{u}, 2a)
+% \end{align}
+% この時，\(ab\leq\frac{1}{2}\)を満たすならば，\(b\)を
+% \begin{align}
+%    \norm{u^*-\hat{u}}_X \leq \dfrac{1-\sqrt{1-2ab}}{a}
+% \end{align}
+% とし，非線形方程式 \(\mathcal{F}(u) = 0\) を満たす \(u^* \in X\) が \(\bar{B}\qty(\hat{u}, 2a)\) に一意に存在する．
+% \end{定理}
+% 本論文では，
+% \begin{align}
+%     \norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_X &\leq K\\
+%     \norm{\mathcal{F}\qty(\hat{u})}_{X^*} &\leq R\\
+%     \norm{\qty(\mathcal{F}'\qty[v]-\mathcal{F}'\qty[w])}_{L(X^* , X)} &\leq G
+% \end{align}
+% とし，\(a\coloneqq KR，\;\;\;b\coloneqq KG\)と置く．
+% \(K^2RG\leq \frac{1}{2}\)を満たせば，
+% \(B\qty(\hat{u}, b)\) の中で \(\mathcal{F}\qty(u) = 0\) の解が一意に存在することがわかる．
+\begin{定理} (Newton-Kantorovich)\\
+  \(X,Y\)をBanach空間とする．このとき非線形作用素\(\mathcal{F}\colon X\rightarrow Y \)がある
+  \(\hat{u}\in X\)において\(\mathcal{F}\qty[\hat{u}]\)が全単射でFr\'{e}chet微分可能であり，それを\(\mathcal{F}'\qty[\hat{u}]\)とすると，
+  ある\(a > 0\)が存在して，
+  \begin{align}
+    \norm{\mathcal{F}'\qty[\hat{u}]^{-1} \mathcal{F}\qty(\hat{u})}_X \leq a
+  \end{align}
+  を満たすとする．
+  また\(\bar{B}\qty(\hat{u},2a)\)を，\(\hat{u}\) を中心とし，半径 \(2a\) の \(X\) の閉球とする．
+  そして
+  \begin{align}
+    \norm{\mathcal{F}'\qty[\hat{u}]^{-1} \qty(\mathcal{F}'\qty[v]-\mathcal{F}'\qty[w])}_{L(X , X)}
+    \leq
+    b\norm{v-w}_X,\;\;\forall v,w \in \bar{B}\qty(\hat{u}, 2a)
+  \end{align}
+  を満たす \(b\) が存在すると仮定する．このとき，\(ab \leq \dfrac{1}{2}\)であるならば，
+  \(\mathcal{F}(u) =0 \)を満たす解\(u \in X\)が存在し，以下の誤差評価式を満たす．
+  \begin{align}
+    \norm{u^*-\hat{u}}_X \leq \dfrac{1-\sqrt{1-2ab}}{b}
+  \end{align}
+  さらに，解は\(\bar{B}\qty(\hat{u},2a)\)内で一意である．
+\end{定理}
+また，\(K,R,G\)を以下の不等式を満たす定数とする．
+\begin{align}
+    &\norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L(Y,X)} \leq K\\
+    &\norm{\mathcal{F}\qty(\hat{u})}_{Y} \leq R\\
+    &\norm{\mathcal{F}'\qty[v]-\mathcal{F}'\qty[w]}_{L(X , Y)} \leq G
+\end{align}
+本論文では，上の定理において\(a\coloneqq KR，\;\;\;b\coloneqq KG\)とし，以下のようにノルムを分けて評価する．
+このとき，\(K^2RG \leq \dfrac{1}{2}\)であるならば，
+  \(\mathcal{F}(u) =0 \)を満たす解\(u \in X\)が存在し，以下の誤差評価式を満たす．
+  \begin{align}
+    \norm{u^*-\hat{u}}_X \leq \dfrac{1-\sqrt{1-2K^2RG}}{KG}
+  \end{align}
+  さらに，解は\(\bar{B}\qty(\hat{u},2KR)\)内で一意である．
+%%%%%%%%%%%%%%%%% [[[[劉・大石の定理]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{劉・大石の定理}
+劉・大石の定理はLaplace作用素の固有値評価に関する定理である．
+\begin{定理}  (劉・大石の定理)\\
+  \(\lambda_i\)をLaplace作用素の固有値問題
+  \begin{align}\label{eq:lambda_i固有値問題}
+    \text{Find} \;\;\;\lambda \in \mathbb{R}\;\;\; \text{and} \;u\in H^1_0(\Omega)\;\text{s.t.}\;(\nabla u,\nabla w)_{L^2} = \lambda (u,w)_{L^2},\;\forall w \in H^1_0 (\Omega)
+  \end{align}
+  を満たす固有値とする．また，\(X_h\)を\(H^1_0(\Omega)\)の有限次元部分空間とすると，\(\lambda^h_i\)を，\eqref{eq:lambda_i固有値問題}を離散化した固有値問題
+  \begin{align}\label{eq:lambda^h_i固有値問題}
+    \text{Find} \;\;\;\lambda^h \in \mathbb{R}\;\;\; \text{and} \;u_h\in X_h \;\text{s.t.}\;(\nabla u_h,\nabla w_h)_{L^2} = \lambda^h (u_h,w_h)_{L^2},\;\forall w \in X_h
+  \end{align}
+  を満たす固有値であるとする．\\
+  また直交射影\(\mathcal{P}_{h,X }:H^1_0(\Omega)\rightarrow X_h\)は任意の\(u\in H^1_0\qty(\Omega)\)に対し
+  \(\qty(u-\mathcal{P}_{h,X }u , \phi_h)_{H^1_0} = 0,\phi_h\in X_h\)
+  を満たすとする．定数\(C_{h,X }\)は不等式
+  \begin{align}
+    \norm{v-\mathcal{P}_{h,X }v}_{L^2} \leq C_{h,X} \norm{v-\mathcal{P}_{h,X }v}_{H^1_0},
+    \;\;\forall v \in H^1_0(\Omega)
+  \end{align}
+  を満たすとする．
+  そのとき固有値\(\lambda_i\)は，
+  \begin{align}
+    \dfrac{\lambda^h_i}{1+C_{h,X}^2\lambda^h_i} \leq \lambda_i \leq  \lambda^h_i
+  \end{align}
+  を満たす．
+  
+\end{定理}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                        %第三章%     %既存手法でのフィッツヒュー・南雲方程式の解に対する精度保証付き数値計算%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

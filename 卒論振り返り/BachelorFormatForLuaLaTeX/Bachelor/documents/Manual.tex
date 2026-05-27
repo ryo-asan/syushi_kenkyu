@@ -1,0 +1,226 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{関根研究室卒業論文作成フォーマットの使い方}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{全体の流れ}
+基本的な論文の流れを説明する．
+この章構成，チャプター名にしなければならないものではないので，注意されたし．
+\begin{enumerate}
+    \item はじめに
+    \item 準備：用語の定義
+    \item 既存手法：自分の問題の条件の設定や既存手法の紹介（本文スタート）
+    \item 提案手法：自分の具体的な提案手法
+    \item 数値実験
+    \item おわりに
+
+    \item 参考文献
+    \item 付録
+\end{enumerate}
+また，各章は\texttt{$\backslash$input}コマンドで，\texttt{documents}フォルダ内の \TeX ファイルを参照している．
+このようにすることで，\texttt{manuscript.tex}の軽量化や章ごとの編集が可能になる．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{クラスファイル}
+関根研究室卒業論文用クラスファイル(\texttt{SekineLabMacro})では，通常の\texttt{maketitle}とは異なるタイトルが出力される．
+これは，関根研究室で統一したタイトルやリストを容易に作成するためにマクロが組まれているためである．
+各コマンドに対応した内容はコメントアウトされており，その内容を入力すれば正しく出力されるはずである．
+
+また，本クラスファイルでは通常の\texttt{listing}とは異なるリストも出力される．
+これは，ソースコード記載用のリストを，視認性が高く関根研究室で統一されたものにするためにマクロが組まれているためである．
+サンプルプログラムと共に，巻末の付録に出力例が載っているので確認してほしい．
+
+さらに，定理環境も本クラスファイルで調整されているので，確認してほしい．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{定理型環境}
+以下の定理型環境があらかじめ定義されている．
+また，本節で紹介する定理型環境はJSIAMに準拠したものであり，JSIAMのマクロ，クラスを使用した際でも動くよう設計されている．
+\begin{itemize}
+    \item \texttt{Axi}：公理
+    \item \texttt{Cor}：系
+    \item \texttt{Def}：定義
+    \item \texttt{Lem}：補題
+    \item \texttt{Prop}：命題
+    \item \texttt{Thm}：定理
+    \item \texttt{Conj}：予想
+    \item \texttt{Exam}：例
+    \item \texttt{Rem2}：注意
+\end{itemize}
+これらの定理型環境は定理番号が互いに連動する．
+
+例を次に示す．
+\begin{Def}[定義のオプション]
+    ここに定義本文を書く．
+    また，定義のオプションでは自動的にカッコが付く設定となっている．
+\end{Def}
+
+\begin{Lem}[補題のオプション]
+    ここに補題本文を書く．
+    また，補題のオプションでは自動的にカッコが付く設定となっている．
+\end{Lem}
+
+\begin{Thm}[定理のオプション]
+    ここに定理本文を書く．
+    また，定理のオプションでは自動的にカッコが付く設定となっている．
+\end{Thm}
+
+\begin{Proof}
+    証明のためには，\texttt{Proof}環境が用意されている．
+    \textbf{証明}という文字が，証明の先頭に全角一文字インデントの後にボールド体で表示される．
+    また，証明の終わりに{\small $\square$}記号が表示される．
+\end{Proof}
+
+\begin{Rem2}[注意のオプション]
+    ここに注意本文を書く．
+    また，注意のオプションでは自動的にカッコが付く設定となっている．
+    注意環境を呼び出す際に"\texttt{Rem2}"となっているのは，JSIAMのマクロに準拠させているためであるので，ご容赦いただきたい．
+\end{Rem2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{書式設定}
+数式番号は章ごとに与えられている．
+\begin{equation}
+    Au = f
+\end{equation}
+
+\subsection{数式例1}
+\begin{equation}
+    Au(x) = f
+\end{equation}
+
+\subsection{数式例2}
+作用素の定義をする\cite[p.103]{FujitaAnalysis2020}．
+\begin{Def}[作用素]
+    $X, Y$を線形空間とする．
+    $T$が$X$から$Y$への作用素であるとは，$T$の定義域を
+    \begin{equation}
+        \mathcal{D}(T) := \{ u \in X \mid Tu \in Y \} 
+    \end{equation}
+    としたとき，$\mathcal{D}(T)$が$X$の部分空間であるということである．
+    また，$T$の値域を
+    \begin{equation}
+        \mathcal{R}(T) := \{ Tu \in Y \mid u \in \mathcal{D}(T) \} 
+    \end{equation}
+    とすると，$\mathcal{R}(T)$は$Y$の部分空間になる．
+\end{Def}
+
+\section{LaTeXで遊んでみた}
+\subsection{数式の参照}
+\begin{equation}\label{eq:neumann_nagumo_problem}
+  \begin{cases}
+    \begin{alignedat}{2}
+      -\Delta u &= \lambda (-au + (1+a)u^2 - u^3) &\ & \text{ in } \Omega, \\
+      \frac{\partial u}{\partial n} &= 0 &\ & \text{ on } \partial \Omega.
+    \end{alignedat}
+  \end{cases}
+\end{equation}
+\eqjref{eq:neumann_nagumo_problem}は2231015の卒業論文のテーマであるが，
+式\verb*|\eqref{eq:}|とせずとも，\verb*|\eqjref{eq:}|とすれば自動で「式」を出力してくれるようにしてみた．
+
+\subsection{図表の参照}
+図も表も\verb*|\jref{}|でいけるようにしてみた．
+図\verb*|\ref{fig:}|や表\verb*|\ref{tab:}|のように\verb*|\ref{}|の前に「図」や「表」と書く必要がなくなるので便利である．
+\jref{tab:diode}や\jref{fig:j1_sync_karnaugh_map}，\jref{fig:k1_sync_karnaugh_map}に意味はない．
+
+\begin{table}[tbp]
+  \caption{発光ダイオードの状態}
+  \label{tab:diode}
+  \centering
+  \small
+  \begin{tabular}{|cc|cc|cc|cc|cc|cc|}
+    \hline
+    \multicolumn{6}{|c|}{論理値} & \multicolumn{6}{|c|}{発光ダイオード} \\
+    \hline
+    \multicolumn{2}{|c|}{現状態} & \multicolumn{2}{|c|}{入力} & \multicolumn{2}{|c|}{次状態} & \multicolumn{2}{|c|}{現状態} & \multicolumn{2}{|c|}{入力} & \multicolumn{2}{|c|}{次状態} \\
+    $Q(t)$ & $\overline{Q}(t)$ & $J$ & $K$ & $Q(t+1)$ & $\overline{Q}(t+1)$ & $Q(t)$ & $\overline{Q}(t)$ & $J$ & $K$ & $Q(t+1)$ & $\overline{Q}(t+1)$ \\
+    \hline
+    0 & 1 & 0 & 0 & 0 & 1 & 消灯 & 点灯 & 点灯 & 点灯 & 消灯 & 点灯 \\
+    0 & 1 & 0 & 1 & 0 & 1 & 消灯 & 点灯 & 点灯 & 消灯 & 消灯 & 点灯 \\
+    0 & 1 & 1 & 0 & 1 & 0 & 消灯 & 点灯 & 消灯 & 点灯 & 点灯 & 消灯 \\
+    0 & 1 & 1 & 1 & 1 & 0 & 消灯 & 点灯 & 消灯 & 消灯 & 点灯 & 消灯 \\
+    \hline
+    1 & 0 & 0 & 0 & 1 & 0 & 点灯 & 消灯 & 点灯 & 点灯 & 点灯 & 消灯 \\
+    1 & 0 & 0 & 1 & 0 & 1 & 点灯 & 消灯 & 点灯 & 消灯 & 消灯 & 点灯 \\
+    1 & 0 & 1 & 0 & 1 & 0 & 点灯 & 消灯 & 消灯 & 点灯 & 点灯 & 消灯 \\
+    1 & 0 & 1 & 1 & 0 & 1 & 点灯 & 消灯 & 消灯 & 消灯 & 消灯 & 点灯 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{tabular}{c}
+      \begin{minipage}{0.48\hsize}
+        \begin{center}
+          \askmapii{\(a\)}{{\(\overline{Q}_0\)}{\(Q_1\)}}{F}{-*1*}%
+          {%
+            \put(1.0,1.0){\oval(1.8,1.8)}
+          }
+        \end{center}
+        \caption{\(J_1\)についてのカルノー図}
+        \label{fig:j1_sync_karnaugh_map}
+      \end{minipage}
+      \begin{minipage}{0.48\hsize}
+        \begin{center}
+          \askmapii{\(a\)}{{\(\overline{Q}_0\)}{\(Q_1\)}}{F}{-0*1}%
+          {%
+            \put(1.5,1.0){\oval(0.8,1.8)}
+          }
+        \end{center}
+        \caption{\(K_1\)についてのカルノー図}
+        \label{fig:k1_sync_karnaugh_map}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+\end{figure}
+
+\subsection{数学記号を定義}
+関根研究室では数学記号を頻繁に使用するため，
+よく使用する記号の略記を定義しておくことで少し楽ができる．
+\begin{verbatim}
+    \newcommand{cmd}{def}
+\end{verbatim}
+とすることで，コマンド(cmd)を新たに定義(def)できる．
+しかし，既に同じ名前のコマンドがある場合はエラーとなる．
+この場合，\verb|\renewcommand|とすることで再定義できるが，他への影響に十分注意する必要がある．
+
+例として，実数の集合$\mathbb{R}$を\verb*|$\mathbb{R}$|ではなく，\verb*|$\R$|で書けるようにしてみる．
+\verb|\R|を\verb|\mathbb{R}|と定義するので，
+\begin{verbatim}
+    \newcommand{\R}{\mathbb{R}}
+\end{verbatim}
+とする．
+こうすることで，実数の集合$\R$を\verb|$\R$|で書くことができるようになった．
+
+次に，\verb|\norm{x}|のような引数ありのコマンドを定義してみよう．
+\begin{verbatim}
+    \newcommand{cmd}[引数の個数]{def}
+\end{verbatim}
+とすることで引数をとり，定義で\verb|#1|，\verb|#2|などと書いた箇所が対応する引数に置き換えられる．
+ノルム$\norm$は，
+\begin{verbatim}
+    \newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
+\end{verbatim}
+とすることで，\verb|$\norm{引数}$|で書くことができるようになる．
+
+\subsection{行列}
+\begin{equation}
+  \calf(\hat{u})=
+  \begin{pmatrix}
+    (\nabla\phi_0, \nabla\phi_0)_{L^2(\Omega)} & \cdots & (\nabla\phi_0, \nabla\phi_m)_{L^2(\Omega)} \\
+    \vdots & \ddots & \vdots \\
+    (\nabla\phi_m, \nabla\phi_0)_{L^2(\Omega)} & \cdots & (\nabla\phi_m, \nabla\phi_m)_{L^2(\Omega)}
+  \end{pmatrix}
+  \begin{pmatrix}
+    u_0 \\
+    \vdots \\
+    u_m
+  \end{pmatrix}
+  -
+  \begin{pmatrix}
+    (f(\hat{u}), \phi_0)_{L^2(\Omega)} \\
+    \vdots \\
+    (f(\hat{u}), \phi_m)_{L^2(\Omega)}
+  \end{pmatrix}
+\end{equation}
