@@ -1,0 +1,128 @@
+\documentclass[a4paper, 11pt]{ltjsreport}
+\usepackage{luatexja}
+\usepackage{amssymb, amsmath}   % 数理環境用パッケージ
+\usepackage{amsthm}             % 定理環境用パッケージ
+\usepackage{ascmac}             % box環境用パッケージ
+% \usepackage[dvipdfmx]{graphicx}           % 画像環境用パッケージ
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{cite}%参考文献
+\usepackage{physics}%ノルムとかが書きやすくなる。
+\usepackage{listings}
+\usepackage{jvlisting}
+\theoremstyle{plain}
+\theoremstyle{definition}
+\newtheorem{公理}{公理}
+\newtheorem{定義}{定義}
+\newtheorem{定理}{定理}
+\newtheorem{証明}{証明}
+\newtheorem*{メモ}{メモ}
+
+\newtheorem{dfn}{Definition}
+
+\begin{document}
+
+本稿では、以下の不等式を満たす具体的な計算可能な定数 $C_{\hat{\mathcal{F}}}$ を構成するための代数的な変形（途中式）とその計算の流れをステップ順に記述する：
+\begin{equation}
+\|(I - P_{\hat{\mathcal{F}}})u\|_{L^2} \le C_{\hat{\mathcal{F}}} \|(I - P_{\hat{\mathcal{F}}})u\|_{\hat{\mathcal{F}}}
+\end{equation}
+
+\subsection*{前提：空間と $H_0^1$ ノルムの定義}
+本評価において、基礎となる関数空間は境界でゼロとなるソボレフ空間 $H_0^1(\Omega)$ である。
+ポアンカレの不等式が成り立つため、$H_0^1$ 空間の内積およびノルムは、関数自身の $L^2$ ノルムを含めず、勾配（微分）の $L^2$ ノルムのみを用いて以下のように定義される：
+\begin{equation}
+(u, v)_{H_0^1} := (\nabla u, \nabla v)_{L^2}, \quad \|u\|_{H_0^1} := \|\nabla u\|_{L^2}
+\end{equation}
+
+\subsection*{Step 1: 誤差の分解（三角不等式）}
+直接扱うことが難しい射影誤差 $(I - P_{\hat{\mathcal{F}}})u$ に対し、すでに具体的な誤差評価定数（$C_N$ 等）が得られている標準的な空間への射影 $P_N$ を仲介させる。
+恒等式として以下のように書き換える：
+\begin{equation}
+(I - P_{\hat{\mathcal{F}}})u = (I - P_N)(I - P_{\hat{\mathcal{F}}})u + P_N(I - P_{\hat{\mathcal{F}}})u
+\end{equation}
+両辺の $L^2$ ノルムを取り、右辺に三角不等式を適用する：
+\begin{equation}
+\|(I - P_{\hat{\mathcal{F}}})u\|_{L^2} \le \|(I - P_N)(I - P_{\hat{\mathcal{F}}})u\|_{L^2} + \|P_N(I - P_{\hat{\mathcal{F}}})u\|_{L^2} \quad \cdots (\text{式A})
+\end{equation}
+
+\subsection*{Step 2: Aubin-Nitscheのトリックによる第1項の評価}
+事前誤差評価定数 $C_N$ は、本来、真の解と射影の誤差に対して以下の関係を満たすものとして与えられる：
+\begin{equation}
+\|u - P_N u\|_{H_0^1} \le C_N \|Au\|_{L^2}
+\end{equation}
+しかし、Aubin-Nitscheの双対論法（トリック）により、この同じ定数 $C_N$ を用いて、$L^2$ ノルムの誤差を $H_0^1$ ノルムの誤差で上から抑えられることが知られている：
+\begin{equation}
+\|v - P_N v\|_{L^2} \le C_N \|v - P_N v\|_{H_0^1} \quad (\forall v \in H_0^1)
+\end{equation}
+式Aの右辺第1項に対してこの性質を適用する。直交射影の性質より $\|v - P_N v\|_{H_0^1} \le \|v\|_{H_0^1}$ が成り立つため、次を得る：
+\begin{equation}
+\|(I - P_N)v\|_{L^2} \le C_N \|v\|_{H_0^1}
+\end{equation}
+ここで $v = (I - P_{\hat{\mathcal{F}}})u$ と置くと、以下が成り立つ：
+\begin{equation}
+\|(I - P_N)(I - P_{\hat{\mathcal{F}}})u\|_{L^2} \le C_N \|(I - P_{\hat{\mathcal{F}}})u\|_{H_0^1}
+\end{equation}
+さらに、内積の定義より $H_0^1$ ノルム（勾配の $L^2$ ノルム）は、非線形摂動項を含む重み付きエネルギーノルム $\|\cdot\|_{\hat{\mathcal{F}}}$ で上から抑えられるため、次を得る：
+\begin{equation}
+\|(I - P_N)(I - P_{\hat{\mathcal{F}}})u\|_{L^2} \le C_N \|(I - P_{\hat{\mathcal{F}}})u\|_{\hat{\mathcal{F}}} \quad \cdots (\text{式B})
+\end{equation}
+
+\subsection*{Step 3: 第2項の有限次元化（代数方程式への帰着）}
+式Aの右辺第2項 $\|P_N(I - P_{\hat{\mathcal{F}}})u\|_{L^2}$ を処理するため、$e := (I - P_{\hat{\mathcal{F}}})u$ と置く。
+$P_N e$ は有限次元の空間 $V_h$ に属するため、その基底 $\{\phi_i\}$ を用いて次のように線形結合で表せる：
+\begin{equation}
+P_N e = \sum_{i=1}^N \alpha_i \phi_i
+\end{equation}
+ここで、直交射影 $P_{\hat{\mathcal{F}}}$ の定義（弱形式）から、任意の基底 $\phi_j$ に対して $(e, \phi_j)_{\hat{\mathcal{F}}} = 0$ が成り立つ。この内積を行列 $\mathbf{G}$ の定義通りに「微分項」と「非線形摂動項」に分解すると、以下を得る：
+\begin{align}
+(e, \phi_j)_{H_0^1} + (\lambda(a + 3\hat{u}^2)e, \phi_j)_{L^2} &= 0 \\
+(e, \phi_j)_{H_0^1} &= -(\lambda(a + 3\hat{u}^2)e, \phi_j)_{L^2}
+\end{align}
+左辺は有限次元空間内において、係数ベクトル $\mathbf{\alpha}$ とエネルギー行列 $\mathbf{G}$ の積に対応し、右辺は摂動項の $L^2$ 内積ベクトル（係数を $\mathbf{\beta}$ とする質量行列 $\mathbf{L}\mathbf{\beta}$ の形）に対応するため、以下の代数方程式に帰着される：
+\begin{equation}
+\mathbf{G} \mathbf{\alpha} = \mathbf{L} \mathbf{\beta} \implies \mathbf{\alpha} = \mathbf{G}^{-1} \mathbf{L} \mathbf{\beta}
+\end{equation}
+
+\subsection*{Step 4: 行列ノルムの抽出（サンドイッチ変形）}
+有限次元関数 $P_N e$ の $L^2$ ノルムは、質量行列 $\mathbf{L}$ を用いてベクトル表現すると次のように表せる：
+\begin{equation}
+\|P_N e\|_{L^2} = \sqrt{\mathbf{\alpha}^T \mathbf{L} \mathbf{\alpha}} = \|\mathbf{L}^{\frac{1}{2}} \mathbf{\alpha}\|_E
+\end{equation}
+ここに Step 3 で得た $\mathbf{\alpha} = \mathbf{G}^{-1} \mathbf{L} \mathbf{\beta}$ を代入する：
+\begin{equation}
+\|P_N e\|_{L^2} = \|\mathbf{L}^{\frac{1}{2}} \mathbf{G}^{-1} \mathbf{L} \mathbf{\beta}\|_E
+\end{equation}
+質量行列 $\mathbf{L}$ を対称性を利用して $\mathbf{L} = \mathbf{L}^{\frac{1}{2}} \mathbf{L}^{\frac{1}{2}}$ と分解し、中間に挟み込む：
+\begin{equation}
+\|P_N e\|_{L^2} = \|\mathbf{L}^{\frac{1}{2}} \mathbf{G}^{-1} \mathbf{L}^{\frac{1}{2}} \mathbf{L}^{\frac{1}{2}} \mathbf{\beta}\|_E
+\end{equation}
+行列ノルムの劣乗法性（$\|AB\|_E \le \|A\|_E \|B\|_E$）を適用して分離する：
+\begin{equation}
+\|P_N e\|_{L^2} \le \|\mathbf{L}^{\frac{1}{2}} \mathbf{G}^{-1} \mathbf{L}^{\frac{1}{2}}\|_E \|\mathbf{L}^{\frac{1}{2}} \mathbf{\beta}\|_E
+\end{equation}
+ここで、右側の項 $\|\mathbf{L}^{\frac{1}{2}} \mathbf{\beta}\|_E$ は、対応する関数空間の表現に戻すと摂動項そのものの $L^2$ ノルム $\|\lambda(a+3\hat{u}^2)e\|_{L^2}$ で抑えられる。さらにこれを $L^\infty$ ノルム（最大値）で分離する：
+\begin{equation}
+\|\lambda(a+3\hat{u}^2)e\|_{L^2} \le \|\lambda(a+3\hat{u}^2)\|_{L^\infty} \|e\|_{L^2}
+\end{equation}
+$e = (I - P_{\hat{\mathcal{F}}})u$ であり、$\|e\|_{L^2}$ には Step 2 で示した Aubin-Nitsche のトリックと同様に定数 $C_N$ がかかり $H_0^1$ ノルムを経由して上から評価されるため、最終的に第2項は以下のように評価される：
+\begin{equation}
+\|P_N(I - P_{\hat{\mathcal{F}}})u\|_{L^2} \le C_N \|\mathbf{L}^{\frac{1}{2}} \mathbf{G}^{-1} \mathbf{L}^{\frac{1}{2}}\|_E \|\lambda(a+3\hat{u}^2)\|_{L^\infty} \|(I - P_{\hat{\mathcal{F}}})u\|_{\hat{\mathcal{F}}} \quad \cdots (\text{式C})
+\end{equation}
+
+\subsection*{Step 5: 結合と定数の括り出し}
+式Aに、式B（第1項の評価）と式C（第2項の評価）を代入する：
+\begin{equation}
+\|(I - P_{\hat{\mathcal{F}}})u\|_{L^2} \le C_N \|(I - P_{\hat{\mathcal{F}}})u\|_{\hat{\mathcal{F}}} + C_N \|\mathbf{L}^{\frac{1}{2}} \mathbf{G}^{-1} \mathbf{L}^{\frac{1}{2}}\|_E \|\lambda(a+3\hat{u}^2)\|_{L^\infty} \|(I - P_{\hat{\mathcal{F}}})u\|_{\hat{\mathcal{F}}}
+\end{equation}
+右辺を共通因数である $C_N \|(I - P_{\hat{\mathcal{F}}})u\|_{\hat{\mathcal{F}}}$ で括り出す：
+\begin{equation}
+\|(I - P_{\hat{\mathcal{F}}})u\|_{L^2} \le C_N \left( 1 + \|\mathbf{L}^{\frac{1}{2}} \mathbf{G}^{-1} \mathbf{L}^{\frac{1}{2}}\|_E \|\lambda(a + 3\hat{u}^2)\|_{L^\infty} \right) \|(I - P_{\hat{\mathcal{F}}})u\|_{\hat{\mathcal{F}}}
+\end{equation}
+この括弧で囲まれた係数部分を $C_{\hat{\mathcal{F}}}$ と定義することで、目的の評価式が得られる：
+\begin{equation}
+C_{\hat{\mathcal{F}}} := C_N \left( 1 + \|\mathbf{L}^{\frac{1}{2}} \mathbf{G}^{-1} \mathbf{L}^{\frac{1}{2}}\|_E \|\lambda(a + 3\hat{u}^2)\|_{L^\infty} \right)
+\end{equation}
+
+\end{document}

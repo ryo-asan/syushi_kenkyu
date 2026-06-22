@@ -1,6 +1,6 @@
-PWD c:/Users/asa19/Desktop/syushi_kenkyu/修論
+PWD c:/Users/asa19/Desktop/syushi_kenkyu/卒論振り返り
 INPUT c:/texlive/2024/texmf-var/web2c/luahbtex/lualatex.fmt
-INPUT c:/Users/asa19/Desktop/syushi_kenkyu/修論/0605.tex
+INPUT c:/Users/asa19/Desktop/syushi_kenkyu/卒論振り返り/0605.tex
 OUTPUT 0605.log
 INPUT c:/texlive/2024/texmf-dist/tex/latex/tex-ini-files/lualatexquotejobname.lua
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/ltluatex.lua
