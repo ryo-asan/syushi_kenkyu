@@ -25,7 +25,7 @@
     \item \(1x=x\)
     \item \((\alpha \beta)x=\alpha(\beta x)\)
     \item \((\alpha+\beta)x=\alpha x +\beta x\)
-    \item \(\alpha(x+y)=\alpha x+\beta y\)
+    \item \(\alpha(x+y)=\alpha x+\alpha y\)
 \end{enumerate}
 \subsection{ノルム空間}
 ベクトル空間\(X\)から\([0,\infty)\)への写像\(\norm{\cdot}_X\)が
@@ -97,6 +97,7 @@
 \begin{align}
   \norm{x_n-x_m}_X\rightarrow 0,\;\;(n,m\rightarrow \infty)
 \end{align}
+を満たすとき、これをCauchy列と呼ぶ.
 \subsection{Banach空間}%ここで完備の話をする%
 完備とは，任意のCauchy列が収束列となるノルム空間のことである．
 完備なノルム空間をBanach空間という．
@@ -137,7 +138,7 @@
 \(X, Y\) を Banach 空間とする．\(X\) から \(Y\) への有界線形型作用素で定義域が \(X\) 全体であるもの全体
 の集合を \(L(X, Y )\) とする．\(L(X, Y )\) はノルムを
 \begin{align}
-    \norm{T}_{L(X,Y)} \coloneqq \sup\limits_{u \in X \backslash \{ 0 \} }\dfrac{\norm{Tv}_Y}{\norm{v}_X}
+    \norm{T}_{L(X,Y)} \coloneqq \sup\limits_{v \in X \backslash \{ 0 \} }\dfrac{\norm{Tv}_Y}{\norm{v}_X}
 \end{align}
 とするとBanach空間になる．
 \subsection{compact作用素}
@@ -188,7 +189,7 @@ Banach 空間 \(X\)，\(Y\) の作用素 \(T : X \rightarrow Y\) が連続であ
 \begin{align}
     \norm{f}_{X^{-1}}
     \coloneqq 
-    \sup\limits_{u \in X \backslash \{ 0 \} }\dfrac{|f(v)|}{\norm{v}_X}
+    \sup\limits_{v \in X \backslash \{ 0 \} }\dfrac{|f(v)|}{\norm{v}_X}
 \end{align}
 とするとBanach空間になる．
 \subsection{Rieszの表現定理}
@@ -300,7 +301,7 @@ Banach 空間 \(X\)，\(Y\) の作用素 \(T : X \rightarrow Y\) が連続であ
 \begin{align}
     &\norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L(Y,X)} \leq K\\
     &\norm{\mathcal{F}\qty(\hat{u})}_{Y} \leq R\\
-    &\norm{\mathcal{F}'\qty[v]-\mathcal{F}'\qty[w]}_{L(X , Y)} \leq G
+    &\norm{\mathcal{F}'\qty[v]-\mathcal{F}'\qty[w]}_{L(X , Y)} \leq G\norm{v-w}_X
 \end{align}
 本論文では，上の定理において\(a\coloneqq KR，\;\;\;b\coloneqq KG\)とし，以下のようにノルムを分けて評価する．
 このとき，\(K^2RG \leq \dfrac{1}{2}\)であるならば，
@@ -337,7 +338,3 @@ Banach 空間 \(X\)，\(Y\) の作用素 \(T : X \rightarrow Y\) が連続であ
   を満たす．
   
 \end{定理}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                        %第三章%     %既存手法でのフィッツヒュー・南雲方程式の解に対する精度保証付き数値計算%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

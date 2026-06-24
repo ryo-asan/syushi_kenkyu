@@ -1,3 +1,38 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{artnakao}
+M.T. Nakao.
+\newblock A numerical approach to the proof of existence of solutions for elliptic problems.
+\newblock {\em Japan Journal of Applied Mathematics}, Vol.~5, pp. 313--332, 1988.
+
+\bibitem{artplum}
+M.~Plum.
+\newblock Computer-assisted existence proofs for two-point boundary value problems.computing.
+\newblock {\em computing}, Vol.~46, No. pp 19-34, 1991.
+
+\bibitem{artoisi}
+Shin'ichi Oishi.
+\newblock Numerical verification of existence and inclusion of solutions for nonlinear operator equations.
+\newblock {\em Journal of Computational and Applied Mathematics}, Vol.~60, No.~1, pp. 171--185, 1995.
+
+\bibitem{bookoisi}
+大石進一.
+\newblock 精度保証付き数値計算の基礎.
+\newblock コロナ社, 2018.
+
+\bibitem{booknakao}
+中尾充宏, 渡部善隆.
+\newblock 実例で学ぶ精度保証付き数値計算 理論と実装.
+\newblock サイエンス社, 2011.
+
+\bibitem{kv}
+M.~Kashiwagi.
+\newblock kv - a c++ library for verified numerical computation.
+\newblock http://verifiedby.me/kv/, 閲覧日 2023/12/14.
+
+\bibitem{vcp}
+Kouta Sekine, Mitsuhiro~T. Nakao, and Shin'ichi Oishi.
+\newblock Numerical verification methods for a system of elliptic pdes, and their software library.
+\newblock {\em Nonlinear Theory and Its Applications, IEICE}, Vol.~12, No.~1, pp. 41--74, 2021.
 
 \end{thebibliography}
