@@ -902,16 +902,57 @@ LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 23.00685pt on input line 115.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 23.00685pt on input line 115.
-(load cache: extra_lmsans17-regular.luc)
-No file manuscript.toc.
-\tf@toc=\write4
+(load cache: extra_lmsans17-regular.luc) (./manuscript.toc
+LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 2.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2.
+ (c:/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2.
+ (c:/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 2.
+ (c:/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 2.
+ (c:/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6.99995> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 2.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 6.47295pt on input line 2.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+ (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+ (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 6.47295pt on input line 2.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 2.
 
-\openout4 = manuscript.toc
-(./documents/1_Introduction.tex
 
 [1
 
-]
+])
+\tf@toc=\write4
+
+\openout4 = manuscript.toc
+ (./documents/1_Introduction.tex
+
+[2]
 第1章
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 19.17854pt on input line 2.
@@ -925,68 +966,15 @@ LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 13.31584pt on input line 5.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 13.31584pt on input line 5.
-(load cache: extra_lmsans12-regular.luc)
-LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 25.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
-(c:/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 25.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 25.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 25.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 25.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6.99995> on input line 25.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 25.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 25.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 25.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 25.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 25.
-(load cache: extra_lmroman7-regular.luc)
+(load cache: extra_lmsans12-regular.luc)(load cache: extra_lmroman7-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 6.47295pt on input line 28.
 (load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 4.62357pt on input line 28.
-(load cache: extra_lmroman10-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 42.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 42.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 42.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 42.
-
-
-LaTeX Warning: Citation `bookoisi' on page 2 undefined on input line 42.
-
 ) (./documents/2_Preparation.tex
 
-[2
+[3
 
 ]
 第2章
@@ -1015,15 +1003,22 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 5.54828pt on input line 8.
 
 
-[3
+[4
 
 ]
 
-[4]
-
 [5]
 
-[6]
+[6](load cache: extra_lmroman10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 150.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 8.44485pt on input line 150.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 150.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 8.44485pt on input line 150.
+
 
 [7]
 
@@ -1031,35 +1026,15 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 
 [9]
 
-LaTeX Warning: Reference `eq:lambda_i固有値問題' on page 10 undefined on input line 321.
+[10]) (./documents/3_Existing.tex
 
-) (./documents/3_Existing.tex
-
-[10]
+[11]
 第3章
 
-LaTeX Warning: Reference `eq:問題' on page 11 undefined on input line 9.
 
-
-LaTeX Warning: Reference `eq:問題' on page 11 undefined on input line 36.
-
-
-
-[11
+[12
 
 ]
-
-LaTeX Warning: Reference `eq:弱形式F' on page 12 undefined on input line 60.
-
-
-LaTeX Warning: Reference `eq:final' on page 12 undefined on input line 87.
-
-
-LaTeX Warning: Reference `eq:Legendre基底' on page 12 undefined on input line 97.
-
-
-LaTeX Warning: Reference `eq:final' on page 12 undefined on input line 97.
-
 LaTeX Font Info:    Calculating math sizes for size <15.768> on input line 103.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.39998> on input line 103.
@@ -1077,55 +1052,27 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 6.65793pt on input line 103.
 
 
-[12]
-
 [13]
-
-LaTeX Warning: Reference `eq:3固有値前' on page 14 undefined on input line 210.
-
-
 
 [14]
 
-LaTeX Warning: Reference `eq:C&v-p1' on page 15 undefined on input line 233.
-
-
-
 [15]
-
-LaTeX Warning: Citation `booknakao' on page 16 undefined on input line 289.
-
-
 
 [16]
 
 [17]
 
-[18]) (./documents/4_Proposing.tex
+[18]
 
-[19]
+[19]) (./documents/4_Proposing.tex
+
+[20]
 第4章
 
-LaTeX Warning: Reference `eq:4章f.tilde' on page 20 undefined on input line 16.
 
-
-LaTeX Warning: Reference `eq:4章f.tilde' on page 20 undefined on input line 17.
-
-
-
-[20
+[21
 
 ]
-
-LaTeX Warning: Reference `eq:4固有値前' on page 21 undefined on input line 109.
-
-
-
-[21]
-
-LaTeX Warning: Reference `eq:C&v-p' on page 22 undefined on input line 134.
-
-
 
 [22]
 
@@ -1143,32 +1090,13 @@ LaTeX Warning: Reference `eq:C&v-p' on page 22 undefined on input line 134.
 
 [29]
 
-[30]) (./documents/5_Experiment.tex
+[30]
 
-[31]
+[31]) (./documents/5_Experiment.tex
+
+[32]
 第5章
-
-LaTeX Warning: Citation `kv' on page 32 undefined on input line 18.
-
-
-LaTeX Warning: Citation `vcp' on page 32 undefined on input line 19.
-
-
-LaTeX Warning: Reference `fi:uh_ans0.06' on page 32 undefined on input line 22.
-
-
-LaTeX Warning: Reference `fi:vh_ans0.046' on page 32 undefined on input line 22.
-
-
-LaTeX Warning: Reference `hyou:定数' on page 32 undefined on input line 22.
-
-
-LaTeX Warning: Reference `hyou:精度保証結果' on page 32 undefined on input line 23.
-
-
-LaTeX Warning: Reference `hyou:数値的検証結果' on page 32 undefined on input line 24.
-
-<true_pic/0.06_uh.pdf, id=123, 462.528pt x 346.896pt>
+<true_pic/0.06_uh.pdf, id=127, 462.528pt x 346.896pt>
 File: true_pic/0.06_uh.pdf Graphic file (type pdf)
 <use true_pic/0.06_uh.pdf>
 Package luatex.def Info: true_pic/0.06_uh.pdf  used on input line 34.
@@ -1194,60 +1122,60 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 5.82565pt on input line 35.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 4.16121pt on input line 35.
-<true_pic/0.06_vh.pdf, id=124, 462.528pt x 346.896pt>
+<true_pic/0.06_vh.pdf, id=128, 462.528pt x 346.896pt>
 File: true_pic/0.06_vh.pdf Graphic file (type pdf)
 <use true_pic/0.06_vh.pdf>
 Package luatex.def Info: true_pic/0.06_vh.pdf  used on input line 40.
 (luatex.def)             Requested size: 200.48523pt x 160.38924pt.
-<true_pic/0.05_uh.pdf, id=125, 462.528pt x 346.896pt>
+<true_pic/0.05_uh.pdf, id=129, 462.528pt x 346.896pt>
 File: true_pic/0.05_uh.pdf Graphic file (type pdf)
 <use true_pic/0.05_uh.pdf>
 Package luatex.def Info: true_pic/0.05_uh.pdf  used on input line 46.
 (luatex.def)             Requested size: 200.48523pt x 160.38924pt.
-<true_pic/0.05_vh.pdf, id=126, 462.528pt x 346.896pt>
+<true_pic/0.05_vh.pdf, id=130, 462.528pt x 346.896pt>
 File: true_pic/0.05_vh.pdf Graphic file (type pdf)
 <use true_pic/0.05_vh.pdf>
 Package luatex.def Info: true_pic/0.05_vh.pdf  used on input line 52.
 (luatex.def)             Requested size: 200.48523pt x 160.38924pt.
-<true_pic/0.047_uh.pdf, id=127, 462.528pt x 346.896pt>
+<true_pic/0.047_uh.pdf, id=131, 462.528pt x 346.896pt>
 File: true_pic/0.047_uh.pdf Graphic file (type pdf)
 <use true_pic/0.047_uh.pdf>
 Package luatex.def Info: true_pic/0.047_uh.pdf  used on input line 58.
 (luatex.def)             Requested size: 200.48523pt x 160.38924pt.
-<true_pic/0.047_vh.pdf, id=128, 462.528pt x 346.896pt>
+<true_pic/0.047_vh.pdf, id=132, 462.528pt x 346.896pt>
 File: true_pic/0.047_vh.pdf Graphic file (type pdf)
 <use true_pic/0.047_vh.pdf>
 Package luatex.def Info: true_pic/0.047_vh.pdf  used on input line 64.
 (luatex.def)             Requested size: 200.48523pt x 160.38924pt.
-<true_pic/0.046_uh.pdf, id=129, 462.528pt x 346.896pt>
+<true_pic/0.046_uh.pdf, id=133, 462.528pt x 346.896pt>
 File: true_pic/0.046_uh.pdf Graphic file (type pdf)
 <use true_pic/0.046_uh.pdf>
 Package luatex.def Info: true_pic/0.046_uh.pdf  used on input line 72.
 (luatex.def)             Requested size: 200.48523pt x 160.38924pt.
-<true_pic/0.046_vh.pdf, id=130, 462.528pt x 346.896pt>
+<true_pic/0.046_vh.pdf, id=134, 462.528pt x 346.896pt>
 File: true_pic/0.046_vh.pdf Graphic file (type pdf)
 <use true_pic/0.046_vh.pdf>
 Package luatex.def Info: true_pic/0.046_vh.pdf  used on input line 78.
 (luatex.def)             Requested size: 200.48523pt x 160.38924pt.
 
 
-[32
+[33
 
 ]
 
-[33<./true_pic/0.06_uh.pdf><./true_pic/0.06_vh.pdf><./true_pic/0.05_uh.pdf><./true_pic/0.05_vh.pdf><./true_pic/0.047_uh.pdf><./true_pic/0.047_vh.pdf>]) (./documents/6_Conclusion.tex
+[34<./true_pic/0.06_uh.pdf><./true_pic/0.06_vh.pdf><./true_pic/0.05_uh.pdf><./true_pic/0.05_vh.pdf><./true_pic/0.047_uh.pdf><./true_pic/0.047_vh.pdf>]) (./documents/6_Conclusion.tex
 
-[34<./true_pic/0.046_uh.pdf><./true_pic/0.046_vh.pdf>]
+[35<./true_pic/0.046_uh.pdf><./true_pic/0.046_vh.pdf>]
 
-[35]
+[36]
 第6章
 ) (./documents/Acknowledgement.tex
 
-[36
+[37
 
 ]) (./manuscript.bbl
 
-[37
+[38
 
 ](load cache: extra_lmroman10-italic.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/it' in size <10> not available
@@ -1260,7 +1188,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 8.44485pt on input line 21.
 ) (./documents/Appendix.tex
 
-[38
+[39
 
 ] (c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
@@ -1276,36 +1204,29 @@ Inserting `ltj.listings_unicode' in `process_input_buffer'.
 Inserting `ltj.process_input_buffer' in `process_input_buffer'. (./code/sample_program.cpp)
 Removing  `ltj.listings_unicode' from `process_input_buffer'.)
 
-[39
+[40
 
 ] (./manuscript.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 )
 
 Here is how much of LuaTeX's memory you used:
- 10064 strings out of 470117
- 244640,953878 words of node,token memory allocated
+ 10068 strings out of 470117
+ 244635,953878 words of node,token memory allocated
  2181 words of node memory still in use:
    11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 34 sub_mlist, 1 glyph, 656 attribute, 59 glue_spec, 72 attribute_list, 1 write, 14 user_defined nodes
-   avail lists: 1:26,2:38701,3:263,4:7362,5:1800,6:44,7:3403,8:106,9:6542,10:31,11:268
- 38080 multiletter control sequences out of 65536+600000
+   avail lists: 1:32,2:38701,3:268,4:7362,5:1800,6:60,7:3403,8:106,9:6542,10:31,11:268
+ 38079 multiletter control sequences out of 65536+600000
  154 fonts using 130126631 bytes
  119i,20n,112p,1880b,955s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf>{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}<c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf>{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on manuscript.pdf (40 pages, 3187411 bytes).
+<c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf>{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}<c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf>{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on manuscript.pdf (41 pages, 3192870 bytes).
 
-PDF statistics: 451 PDF objects out of 1000 (max. 8388607)
- 272 compressed objects within 3 object streams
+PDF statistics: 462 PDF objects out of 1000 (max. 8388607)
+ 279 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

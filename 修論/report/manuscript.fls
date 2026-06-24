@@ -181,10 +181,7 @@ INPUT C:/Users/asa19/.texlive2025/texmf-var/luatexja/extra_lmsans10-regular.luc
 OUTPUT manuscript.pdf
 INPUT C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmsans17-regular.luc
 INPUT C:/Users/asa19/.texlive2025/texmf-var/luatexja/extra_lmsans17-regular.luc
-OUTPUT manuscript.toc
-INPUT ./documents/1_Introduction.tex
-INPUT C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmsans12-regular.luc
-INPUT C:/Users/asa19/.texlive2025/texmf-var/luatexja/extra_lmsans12-regular.luc
+INPUT ./manuscript.toc
 INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr7.tfm
@@ -216,12 +213,14 @@ INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+OUTPUT manuscript.toc
+INPUT ./documents/1_Introduction.tex
+INPUT C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmsans12-regular.luc
+INPUT C:/Users/asa19/.texlive2025/texmf-var/luatexja/extra_lmsans12-regular.luc
 INPUT C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc
 INPUT C:/Users/asa19/.texlive2025/texmf-var/luatexja/extra_lmroman7-regular.luc
 INPUT C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-regular.luc
 INPUT C:/Users/asa19/.texlive2025/texmf-var/luatexja/extra_lmroman5-regular.luc
-INPUT C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
-INPUT C:/Users/asa19/.texlive2025/texmf-var/luatexja/extra_lmroman10-bold.luc
 INPUT ./documents/2_Preparation.tex
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm
@@ -247,6 +246,8 @@ INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
+INPUT C:/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
+INPUT C:/Users/asa19/.texlive2025/texmf-var/luatexja/extra_lmroman10-bold.luc
 INPUT ./documents/3_Existing.tex
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
