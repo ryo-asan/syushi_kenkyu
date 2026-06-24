@@ -1,0 +1,139 @@
+\documentclass[a4paper,11pt]{ltjsreport}
+%%%%%%%% パッケージ %%%%%%%%
+\usepackage{amssymb, amsmath}   % 数理環境用パッケージ
+\usepackage{amsthm}             % 定理環境用パッケージ
+\usepackage{ascmac}             % box環境用パッケージ
+% \usepackage[dvipdfmx]{graphicx}           % 画像環境用パッケージ
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{cite}%参考文献
+\usepackage{physics}%ノルムとかが書きやすくなる。
+\usepackage{listings}
+\usepackage{jvlisting}
+\usepackage{SekineLabMacro}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{lmodern}
+\mathtoolsset{showonlyrefs=true}
+\theoremstyle{plain}
+\theoremstyle{definition}
+\newtheorem{公理}{公理}
+\newtheorem{定義}{定義}
+\newtheorem{定理}{定理}
+\newtheorem{証明}{証明}
+\newtheorem*{メモ}{メモ}
+
+\newtheorem{dfn}{Definition}
+
+\usepackage{silence}
+\WarningFilter{hyperref}{Token not allowed in a PDF string}
+% ↓以下の2行を追加して、フォントのサイズ警告を無視（ミュート）する
+\WarningFilter{latexfont}{Font shape}
+\WarningFilter{latexfont}{Size substitutions}
+
+% \WarningFilter{hyperref}{Token not allowed in a PDF string}
+% Display
+% \usepackage[%
+% 	luatex,%
+% 	pdfencoding=auto,%
+% 	setpagesize=false,%
+% 	bookmarks=true,%
+% 	%bookmarksdepth=tocdepth,%
+% 	bookmarksnumbered=true,%
+% 	hidelinks,%
+% 	%colorlinks=true,%
+% 	%linkcolor=blue,%
+% ]{hyperref}
+% %% LaTeXのrefを改良したい．(https://tsuu32.hatenablog.com/entry/2019/10/23/190000)
+% \def\figureautorefname~#1\null{図#1}
+% \def\tableautorefname~#1\null{表#1}
+% \newcommand*{\jref}[1]{\autoref{#1}}
+% \newcommand*{\eqjref}[1]{式\eqref{#1}}
+
+%%%%%%%% 用途に応じて追加してください．%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % 数学記号略記定義
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand{\rnum}[1]{\expandafter{\romannumeral #1}}
+% \newcommand{\Rnum}[1]{\uppercase\expandafter{\romannumeral #1}}
+
+% \newcommand{\cs}{,\ }%数式中のカンマ
+
+% \newcommand{\abs}[1]{\left \lvert #1 \right \rvert}%絶対値
+% \newcommand{\norm}[1][\,\cdot\,]{\left \lVert #1 \right \rVert}%ノルム
+% \newcommand{\ip}[2]{\left \langle #1, #2 \right \rangle}%内積
+
+% \newcommand{\N}{\mathbb{N}}%自然数
+% \newcommand{\Z}{\mathbb{Z}}%整数
+% \newcommand{\Q}{\mathbb{Q}}%有理数
+% \newcommand{\R}{\mathbb{R}}%実数
+% \newcommand{\C}{\mathbb{C}}%複素数
+% \newcommand{\K}{\mathbb{K}}%係数体
+
+% \newcommand{\cala}{\mathcal{A}}
+% \newcommand{\caln}{\mathcal{N}}
+% \newcommand{\calt}{\mathcal{T}}
+% \newcommand{\calf}{\mathcal{F}}
+% \newcommand{\calb}{\mathcal{B}}%定義域がXの全体となる有界な線形作用素全体の集合
+% \newcommand{\cald}{\mathcal{D}}%定義域
+% \newcommand{\calr}{\mathcal{R}}%値域
+
+% \newcommand{\ve}{\varepsilon}
+% \newcommand{\vp}{\varphi}
+
+% \DeclareMathOperator*{\esssup}{ess~sup}
+
+% \def\Cpp{\texorpdfstring{C\raisebox{0.5ex}{\tiny\textbf{++}}}{C++}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% タイトル
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%% ここから順序変更不可，内容変更可 %%%%%%%%
+\title{3変数のフィッツヒュー・南雲方程式の解に特化した\\精度保証付き数値計算法} %タイトル
+\date{202x年xx月xx日} %日付
+\author{浅野  凌一郎} %氏名
+
+\begin{document}
+
+\JYear{令和8年度} %年度
+\StudentNumber{2581002} %学生番号
+%%%%%%%% ここまで順序変更不可，内容変更可 %%%%%%%%
+
+\maketitle
+\setcounter{tocdepth}{2} %目次の深さ設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% マニュアル
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{documents/Manual} % マニュアル
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 目次
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 本文
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{documents/1_Introduction}  % はじめに
+\input{documents/2_Preparation}   % 準備
+\input{documents/3_Existing}      % 既存手法
+\input{documents/4_Proposing}     % 提案手法
+\input{documents/5_Experiment}    % 数値実験
+\input{documents/6_Conclusion}    % おわりに
+\input{documents/Acknowledgement} % 謝辞
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 参考文献
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{documents/References} % bibファイル
+\bibliographystyle{junsrt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 付録
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{documents/Appendix} % ソースコード
+
+\end{document}

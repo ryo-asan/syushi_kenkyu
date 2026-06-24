@@ -1,0 +1,510 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{フィッツヒュー・南雲方程式の解に対する既存の精度保証付き数値計算}\label{Existing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 既存手法を書いてね\chapter{フィッツヒュー・南雲方程式の解に対する既存の精度保証付き数値計算}
+
+\section{弱形式}
+%%%%%%%%%%%%%%%%% [[[[弱形式]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\eqref{eq:問題}の第２式\(-\Delta v =u-rv\)
+を弱形式にすると，
+\begin{align}
+  \qty(\nabla v,\nabla w)_{L^2}
+  =
+  \qty(u-rv,w)_{L^2}
+\end{align}
+となる．
+ここで，
+\(\mathcal{A} : H^1_0\qty(\Omega) \rightarrow H^{-1}\qty(\Omega)\) を
+\begin{align}
+     \langle\mathcal{A}u,l \rangle
+    =
+    \qty(\nabla u,\nabla l)_{L^2},\;\;\forall u,l\in H^1_0\qty(\Omega)
+\end{align}
+で定めると
+\begin{align}
+  \mathcal{A}v=u-rv
+\end{align}
+と書くことができる．式変形すると
+\begin{align}
+  \qty(\mathcal{A}+rI)v=u
+\end{align}
+となる．このとき，\(\mathcal{A}+rI=\mathcal{B}^{-1}\)とすると，
+\begin{align}
+  v=\mathcal{B}u
+\end{align}
+となる．\eqref{eq:問題}の第１式を\(-{\epsilon}^2\Delta u = f(u)-\delta v\)
+に代入すると,
+\begin{align}
+  -{\epsilon}^2\Delta u &= f(u)-\delta \mathcal{B}u
+\end{align}
+となる．この式を弱形式にすると，
+\begin{align}\label{eq:弱形式F}
+  \qty(\nabla u,\nabla l)_{L^2}
+  =
+  \qty(\frac{1}{\epsilon^2}(f(u)-\delta\mathcal{B}u),l)_{L^2},\;\;\forall l\in H^1_0\qty(\Omega)
+\end{align}
+となる．
+非線形作用素\(\mathcal{N}:H^1_0\qty(\Omega)\rightarrow H^{-1}\qty(\Omega)\)を
+\begin{align}
+    \langle \mathcal{N}\qty(u),l \rangle
+    =
+    \qty(\frac{1}{\epsilon^2}\qty(f(u)-\delta \mathcal{B}u),l)_{L^2},\;\;\forall l\in H^1_0\qty(\Omega)
+\end{align}
+で定める．
+
+これは作用素\(\mathcal{F}:H^1_0\qty(\Omega)\rightarrow H^{-1}\qty(\Omega)\)を
+\begin{align}
+  \mathcal{F}(u) = \mathcal{A}u - \mathcal{N}(u)
+\end{align}
+と定義すれば，\eqref{eq:弱形式F}は
+\begin{align}\label{eq:final}
+  \mathcal{F}(u)=0
+\end{align}
+と書ける．
+
+\section{直交射影と誤差評価}
+%%%%%%%%%%%%%%%%% [[[[直交射影と誤差評価]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\(V_N\) を\(H^1_0\qty(\Omega)\) の有限次元部分空間とする．
+\(I\) を \(H^1_0\qty(\Omega)\)上の恒等作用素とする． 
+直交射影\(P_N:H^1_0\qty(\Omega)\rightarrow V_N\)を
+\begin{align}
+    ((I-P_N)u,v_h)_{H^1_0}=0,\;\;\forall v_h\in V_N
+\end{align}
+で定める．ここで，\(D(A) \coloneqq \{u\in H^1_0(\Omega)\;\;|\;\;\mathcal{A}u\in L^2\qty(\Omega)\}\)
+とし，線形作用素 \(A:D(A)\rightarrow L^2\qty(\Omega)\)を
+\begin{align}
+    (Au,v)_{L^2}=\qty(\nabla u, \nabla v)_{L^2}, \;\; \forall u \in H^1_0(\Omega)
+\end{align}
+で定める．以下の式を満たす定数 \(C_N\) の値が具体的に評価できるとする．
+\begin{align}
+   \norm{(I-P_N)u}_{H^1_0}\leq C_N\norm{Au}_{L^2}, \;\; v \in H^1_0(\Omega)\cap H^2(\Omega)
+\end{align}
+
+
+\section{近似解の計算}
+%%%%%%%%%%%%%%%%% [[[[近似解の計算]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\eqref{eq:final}の近似解をLegendre基底を用いたGalerkin法で求める．
+次に示すLegendre多項式
+\begin{align}
+   P_i(x)=\dfrac{\qty(-1)^i}{i!}\qty(\dfrac{d}{dx})^i x^i\qty(1-x)^i \;\; i=0,1,2,\cdots
+\end{align}
+を用いるとLegendre基底は次のようになる．
+\begin{align}\label{eq:Legendre基底}
+    \phi_i(x)=\dfrac{1}{i\qty(i+1)} x \qty(1-x)\dfrac{dP_i}{dx}\qty(x) 
+    \;\; i=1,2,\cdots
+\end{align}
+\eqref{eq:Legendre基底}を用いると，\eqref{eq:final}の近似解 \(\hat{u}\) は
+\begin{align}
+   \hat{u}\qty(x,y)=\sum_{i,j=1}^{N}a_{i,j}\phi_i\qty(x)\phi_j\qty(y)
+\end{align}
+と表すことができる．
+
+\section{作用素\(\mathcal{F}\)のFr\'{e}chet微分}
+%%%%%%%%%%%%%%%%% [[[[Fr\'{e}chet微分]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+作用素 \(\mathcal{N}\) の \(\hat{u} \in H^1_0(\Omega)\) における Fr\'{e}chet 微分を
+\begin{align}
+    \langle \mathcal{N}'\qty[\hat{u}]u,l \rangle
+    =
+    \qty(\frac{1}{\epsilon^2}\qty(f^\prime\qty[\hat{u}]-\delta \mathcal{B})u,l)_{L^2},\;\;\forall l\in H^1_0\qty(\Omega)
+\end{align}
+とする．作用素\(\mathcal{F}\)の\(\hat{u} \in H^1_0(\Omega)\)における Fr\'{e}chet 微分は
+\begin{align}
+    \mathcal{F}'\qty[\hat{u}]u = \mathcal{A}u - \mathcal{N}'\qty[\hat{u}]u
+\end{align}
+となる．
+
+
+\section{\(\sigma\)ノルム}
+%%%%%%%%%%%%%%%%% [[[[シグマノルム]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\(\sigma\)を\(\sigma \geq \norm{\dfrac{1}{\epsilon^2}(f^\prime[\hat{u}]- \delta\mathcal{B})}_{L(L^2)}\)を満たす整数とする．
+この時，\(H^1_0\qty(\Omega)\)上の内積
+\begin{align}
+    (u,v)_{\sigma}\coloneqq \qty(\nabla u,\nabla v)_{L^2}+\sigma(u,v)_{L^2}
+\end{align}
+を定めることができる．この内積から誘導されるノルムを
+\begin{align}
+    {\norm{ u }}_\sigma \coloneqq \sqrt{{(u,u)}_\sigma}
+\end{align}
+とする．
+
+ 
+ここで，\(V\)を\(H^1_0(\Omega)\)に\(\sigma\)の内積を導入したHilbert空間とする．
+また，\(V_N\)を\(V\)の有限次元部分空間とし，\(V_\perp\)を\(V\)の\(V_N\)に対する直交補空間とする．
+また，\(V^{-1}\)を\(V\)の共役空間とし，そのノルムを
+\begin{align}
+  \norm{u}_{\sigma^{-1}}
+  = 
+  \sup\limits_{v \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{\qty|\langle u,v \rangle|}{\norm{v}_\sigma}
+\end{align}
+とする．
+
+このノルムで Newton-Kantorovich の定理を考える．
+
+
+\section{\(K\)の評価}%たうの評価までここで述べる%
+%%%%%%%%%%%%%%%%% [[[[Kの評価]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\(\norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L(V^{-1},V )} \leq K\)
+を満たす\(K\)を評価する．\\
+線形作用素\(\mathcal{A}_\sigma\coloneqq H^1_0(\Omega)\rightarrow H^{-1}(\Omega)\)を
+\begin{align}
+   \langle \mathcal{A}_\sigma u , w \rangle 
+   \coloneqq (u,v)_{\sigma}
+\end{align}
+とすると，作用素ノルムの定義より，\(\norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L(V^{-1},V )} \)
+は次のように表すことができる．
+\begin{align}
+    \norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L(V^{-1},V )} 
+    &=
+    \sup\limits_{\phi \in H^{-1}(\Omega) \backslash \{ 0 \} }
+    \dfrac{\norm{\mathcal{F}'\qty[\hat{u}]^{-1}\phi}_\sigma }{\norm{\phi}_{\sigma ^{-1}}}\\
+    &=
+    \sup\limits_{\phi \in H^1_0 (\Omega)\backslash \{ 0 \} }
+    \dfrac{\norm{\phi}_\sigma }{\norm{\mathcal{F}'\qty[\hat{u}]\phi}_{\sigma ^{-1}}}\\
+    &=
+    \sup\limits_{\phi \in H^1_0 (\Omega)\backslash \{ 0 \} }
+    \dfrac{\norm{\phi}_\sigma }{\norm{ \mathcal{A}_\sigma^{-1}\mathcal{F}'\qty[\hat{u}] \phi}_\sigma }\\
+\end{align}
+ここで，\(\mathcal{A}_\sigma^{-1} \mathcal{F}'\qty[\hat{u}]\)についてスペクトル分解すると
+\(\mathcal{A}_\sigma^{-1} \mathcal{F}'\qty[\hat{u}] = \int \mu d E\)と置き換えられる．\\
+したがって，
+\begin{align}
+  \norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L\qty(V^{-1},V  )} 
+  &=
+  \sup\limits_{\phi \in H^1_0 (\Omega)\backslash \{ 0 \} }
+  \dfrac{\norm{\phi}_\sigma }{\norm{\int \mu d E\phi}_\sigma }\\
+  &\leq
+  \sup\limits_{\phi \in H^1_0 (\Omega)\backslash \{ 0 \} }
+  \dfrac{\norm{\phi}_\sigma }{|\mu |\norm{\int d E\phi}_\sigma }\\
+  &\leq
+  \dfrac{1}{|\mu_1|}
+\end{align}
+と評価できる． このとき，\(\mu\) はスカラとして取り出すことができ，
+絶対値をつけることで右辺が大きくなる．
+なお，\(\mu_1\) はゼロに最も近い絶対最小固有値を意味する．
+ここで，非線形作用素\(\mathcal{N}_\sigma\coloneqq H^1_0(\Omega)\rightarrow H^{-1}(\Omega)\)を
+\begin{align}
+  \langle \mathcal{N}^\prime_\sigma (u) , w \rangle
+  \coloneqq \qty(\frac{f^\prime(u)-\delta \mathcal{B}}{\epsilon^2}u , w)_{L^2}
+  +\sigma(u , w)_{L^2}
+\end{align}
+とする．固有値 \(\mu\) の下界評価にあたり，
+\begin{align}
+  \qty(\mathcal{A}_\sigma  - \mathcal{N}'_\sigma  [\hat{u}])u =\mu \mathcal{A}_\sigma  u
+\end{align}
+を考える．
+この時
+\begin{align}
+  \dfrac{1}{\mu} = \dfrac{\eta}{\eta - 1}
+\end{align}
+とすることで，
+\begin{align}\label{eq:3固有値前}
+  \mathcal{A}_\sigma  u = \eta \mathcal{N'}_\sigma [\hat{u}] u 
+\end{align}
+とすることができる．ここで新しく\(d\)内積を以下のように定義する．
+\begin{align}
+   (u,w)_d \coloneqq \qty(\dfrac{f'[u]-\delta \mathcal{B}}{\epsilon^2}u,w)_{L^2}+\sigma(u,w)_{L^2}
+\end{align}
+\eqref{eq:3固有値前}を固有値問題に書き直すと
+\begin{align}
+  \text{Find} \;\;\;\eta \in \mathbb{R}\;\;\; \text{and} \;u\in H^1_0(\Omega)\;\text{s.t.}\;(u,w)_{\sigma} = \eta (u,w)_d,\;\forall w \in H^1_0 (\Omega)
+\end{align}
+のスペクトル\(\eta\)は固有値となり，\(\qty{\eta_i}^\infty_{i=1}\)とする．
+また離散化すると
+\begin{align}
+  \text{Find} \;\;\;\eta^h \in \mathbb{R} \;\;\text{and} \;\;u_h\in V_N\;\text{s.t.}\;(u_h,w_h)_{\sigma} = \eta^h (u_h,w_h)_d,\;\forall w_h \in V_N (\Omega)
+\end{align}
+となり，その固有値を\(\qty{\eta^h_i}^n_{i=1}\)とする．\\
+直交射影\(\mathcal{P}_{h,\sigma }:H^1_0(\Omega)\rightarrow V_N\)は
+\(\qty(u-\mathcal{P}_{h,\sigma }u , \phi_h)_{\sigma} = 0,\phi_h\in V_N\)
+を満たすとする．定数\(C_{h,d }\)は不等式
+\begin{align}\label{eq:C&v-p1}
+  \norm{v-\mathcal{P}_{h,\sigma }v}_d \leq C_{h,d } \norm{v-\mathcal{P}_{h,\sigma }v}_{\sigma },
+  \;\;\forall x \in H^1_0(\Omega)
+\end{align}
+を満たすとする．そのとき，劉・大石の定理より，\(i \leq n\)となる整数\(i\)番目の固有値\(\eta_i\)は
+\begin{align}
+  \dfrac{\eta^h_i}{1+C_{h,d}^2\eta^h_i} \leq \eta_i \leq  \eta^h_i
+\end{align}
+を満たす．
+
+\(C_{h,d}\)を求めるために，\eqref{eq:C&v-p1}の両辺にある，
+\(
+  \norm{v-\mathcal{P}_{h,\sigma }v}_d ,\;\;\; \norm{v-\mathcal{P}_{h,\sigma }v}_{\sigma }
+\)
+の関係式を作る必要がある．
+
+任意の\( v \in H^1_0(\Omega)\)について，
+\begin{align}
+  \norm{v}^2_d =(v,v)_d =(f'[\hat{u}]v,v)_{L^2}+(\sigma v,v)_{L^2}
+\end{align}
+である．
+このとき\(f'[\hat{u}]\)は，
+\begin{align}
+  f'[\hat{u}]=\dfrac{1}{\epsilon^2}(-\alpha+2\beta\hat{u}-3\gamma\hat{u}^2-\delta\mathcal{B})
+\end{align}
+であるため，
+\begin{align}
+  {\norm{v}_d}^2 &=(v,v)_d =(f'[\hat{u}]v,v)_{L^2}+(\sigma v,v)_{L^2}\\
+  &=\qty(\qty(\dfrac{1}{\epsilon^2}(-\alpha+2\beta\hat{u}-3\gamma\hat{u}^2-\delta\mathcal{B})+\sigma)v,v)_{L^2}\\
+  &\leq\norm{\dfrac{1}{\epsilon^2}(-\alpha+2\beta\hat{u}-3\gamma\hat{u}^2-\delta\mathcal{B})+\sigma}_{L(L^2)}\norm{v}_{L^2}^2
+\end{align}
+となる．
+よって，
+\begin{align}
+  \norm{v-\mathcal{P}_{h,\sigma }v}_d 
+  \leq&\sqrt{\norm{\dfrac{1}{\epsilon^2}(-\alpha+2\beta\hat{u}-3\gamma\hat{u}^2-\delta\mathcal{B})+\sigma}_{L(L^2)}}\norm{v-\mathcal{P}_{h,\sigma }v}_{L^2}\\
+\end{align}
+さらに
+\begin{align}
+  \norm{v-\mathcal{P}_{h,\sigma }v}_{L^2}
+  \leq
+  C_{h,\sigma }\norm{v-\mathcal{P}_{h,\sigma }v}_{\sigma }
+\end{align}
+が成り立つので
+\begin{align}
+  \norm{v-\mathcal{P}_{h,\sigma }v}_d\leq C_{h,\sigma }\sqrt{\norm{\dfrac{1}{\epsilon^2}(-\alpha+2\beta\hat{u}-3\gamma\hat{u}^2-\delta\mathcal{B})+\sigma}_{L(L^2)}}\norm{v-\mathcal{P}_{h,\sigma }v}_{\sigma }
+\end{align}
+となる．よって
+\begin{align}
+  C_{h,d}\coloneqq C_{h,\sigma }\sqrt{\norm{\dfrac{1}{\epsilon^2}(-\alpha+2\beta\hat{u}-3\gamma\hat{u}^2-\delta\mathcal{B})+\sigma}_{L(L^2)}}
+\end{align}
+と評価できる．
+\section{\(C_{h,\sigma}\)の評価}
+行列\(L\)を\(L_{i,j}\coloneqq(\phi_i,\phi_j)_{L^2}\)，
+行列\(G\)を
+\(G\coloneqq (\nabla\phi_i,\nabla\phi_j)_{L^2}
++\qty(\dfrac{1}{\epsilon^2}(\alpha+3\gamma \hat{u}^2 + \delta \mathcal{B} )\phi_i,\phi_j)_{L^2}\)
+とすると，\(C_{h,\sigma}\)は
+\begin{align}
+  C_{h,\sigma} \coloneqq 
+  C_N\qty
+  (
+    1+\norm{L^{\frac{1}{2}}G^{-1}L^{\frac{T}{2}}}_E
+    \norm{\dfrac{1}{\epsilon^2}(\alpha+3\gamma \hat{u}^2 + \delta \mathcal{B} )}_{L(L^2)}
+  )
+\end{align}
+となる．また，\(L,G\)は文献\cite{booknakao}によって具体的に計算できる．
+
+\section{\(C_{p\sigma}\)の評価}
+定数\(C_{p\sigma}\)は
+\begin{align}
+   \norm{u}_{L^2}\leq C_{p\sigma} \norm{u}_{\sigma}
+\end{align}
+で定義される．これは
+\begin{align}
+  C_{p\sigma} \coloneqq 
+  \sqrt{\dfrac{1+C_{h,\sigma}^2\norm{L^{\frac{1}{2}}G^{-1}L^{\frac{T}{2}}}_E}{\norm{L^{\frac{1}{2}}G^{-1}L^{\frac{T}{2}}}_E}}
+\end{align}
+で評価できる．
+\section{\(R\)の評価}
+%%%%%%%%%%%%%%%%% [[[[Rの評価]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\(\norm{\mathcal{F}\qty(\hat{u})}_{V^{-1}} \leq R\)を評価する．
+ここで\(\norm{\mathcal{F}\qty(\hat{u})}_{V^{-1}} \leq R\)は
+ノルム\(\norm{\cdot}_{V^{-1}}\)の定義より
+\begin{align}
+    \norm{\mathcal{F}\qty(\hat{u})}_{V^{-1}}
+    = 
+    \sup\limits_{w \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+    \dfrac{\qty|\langle \mathcal{F}\qty(\hat{u}),w \rangle|}{\norm{w}_\sigma}
+\end{align}
+と導くことができる．
+また，\( \mathcal{F}(\hat{u}) = \mathcal{A}\hat{u} - \mathcal{N}(\hat{u})\)より
+\begin{align}
+    \norm{\mathcal{F}\qty(\hat{u})}_{V^{-1}}
+    =&
+    \sup\limits_{w \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+    \dfrac{\qty|\langle \mathcal{F}\qty(\hat{u}),w \rangle|}{\norm{w}_\sigma}\\
+    =&
+    \sup\limits_{w \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+    \dfrac{\qty| \qty(\nabla \hat{u} , \nabla w)_{L^2}  -  \qty(\frac{1}{\epsilon^2}\qty(f(\hat{u})-\delta \mathcal{B}\hat{u}),w)_{L^2} |}{\norm{w}_\sigma}\\
+    \leq&
+    C_{p\sigma}\norm{-\Delta\hat{u}-\frac{1}{\epsilon^2}\qty(f(\hat{u})-\delta \mathcal{B}\hat{u})}_{L^2}
+\end{align}
+と評価できる．
+\section{\(G\)の評価}
+%%%%%%%%%%%%%%%%% [[[[Gの評価]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\(
+    \norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(V,V^{-1})}
+    \leq
+    G\norm{w-l}_\sigma
+\)
+を評価する．
+\begin{align}
+    \norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(V,V^{-1})}
+    =
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \dfrac
+    {\norm{\qty(\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l])\phi}_{\sigma^{-1}}}
+    {\norm{\phi}_{\sigma}} 
+\end{align}
+共役空間のノルム
+\(
+    \norm{\cdot}_{\sigma^{-1}}=
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \dfrac{|( \cdot,\phi )|}{\norm{\phi}_\sigma}
+\)
+より
+\begin{align}
+    \norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(V,V^{-1})}
+    =&
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {\norm{\qty(\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l])\phi}_{\sigma^{-1}}}
+    {\norm{\phi}_{\sigma}}\\ 
+    =&
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {\sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {|\langle \mathcal{F}'\qty[w]-\mathcal{F}'\qty[l],\psi \rangle|}
+    {\norm{\psi}_\sigma}}
+    {\norm{\phi}_{\sigma}}\\
+    =&
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {|\langle \qty(\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l])\phi,\psi \rangle|}
+    {\norm{\psi}_\sigma\norm{\phi}_\sigma}
+\end{align}
+ここで
+\begin{align}
+    \mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]
+    =\mathcal{A} - \mathcal{N}'\qty[w]-\qty(\mathcal{A} - \mathcal{N}'\qty[l])
+    =-\mathcal{N}'\qty[w]+\mathcal{N}'\qty[l]
+\end{align}
+であるので，
+\begin{align}
+    \norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(V,V^{-1})}
+    =
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {\qty|\langle \qty(-\mathcal{N}'\qty[w]+\mathcal{N}'\qty[l])\phi,\psi \rangle|}
+    {\norm{\psi}_\sigma\norm{\phi}_\sigma}
+\end{align}
+と置き換えられる．また
+\begin{align}
+  % \mathcal{N}'\qty[w]=&\frac{1}{\epsilon^2}\qty(f^\prime[w]-\delta \mathcal{B})\\
+  % \mathcal{N}'\qty[l]=&\frac{1}{\epsilon^2}\qty(f^\prime[l]-\delta \mathcal{B})
+  &\langle \mathcal{N}'\qty[w]\phi,\psi \rangle =\qty(\frac{1}{\epsilon^2}\qty(f^\prime[w]-\delta \mathcal{B})\phi,\psi)_{L^2}\\
+  &\langle \mathcal{N}'\qty[l]\phi,\psi \rangle =\qty(\frac{1}{\epsilon^2}\qty(f^\prime[l]-\delta \mathcal{B})\phi,\psi)_{L^2} 
+\end{align}
+より，
+\begin{align}
+  &\norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(V,V^{-1})}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {|\qty(\qty(-\frac{1}{\epsilon^2}\qty(f^\prime[w]-\delta \mathcal{B}) 
+  + \frac{1}{\epsilon^2}\qty(f^\prime[l]-\delta \mathcal{B}))\phi,\psi)_{L^2} |}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\qty| (\qty(\frac{1}{\epsilon^2}\qty(f^\prime[l]-f^\prime[w]))\phi,\psi )_{L^2}|}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+\end{align}
+この時，
+\begin{align}
+  f[l]=-\alpha l + \beta l^2 - \gamma l^3\\
+  f[w]=-\alpha w + \beta w^2 - \gamma w^3\\
+\end{align}
+とすると，
+\begin{align}
+  f^\prime[l]=-\alpha  + 2\beta l - 3\gamma l^2\\
+  f^\prime[w]=-\alpha  + 2\beta w - 3\gamma w^2\\
+\end{align}
+であるので，
+\begin{align}
+  &\norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(V,V^{-1})}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {|\qty(\qty(\frac{1}{\epsilon^2}\qty(f^\prime[l]-f^\prime[w]))\phi,\psi)_{L^2}|}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\qty|\qty(\frac{1}{\epsilon^2}
+  \qty(\qty(-\alpha  + 2\beta l - 3\gamma l^2)-\qty(-\alpha  + 2\beta w - 3\gamma w^2)))\phi,\psi)_{L^2}  |}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\qty|\qty( \qty(\frac{1}{\epsilon^2}
+  \qty(2\beta\qty(l-w)-3\gamma\qty(l+w)\qty(l-w)))\phi,\psi )_{L^2}|}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &\leq
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{2\beta}{\epsilon^2}\norm{l-w}_{L^3}
+  \norm{\psi}_{L^3}\norm{\phi}_{L^3}}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &+
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{3\gamma}{\epsilon^2}\norm{l-w}_{L^4}\norm{l+w}_{L^4}
+  \norm{\psi}_{L^4}\norm{\phi}_{L^4}}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+\end{align}
+
+
+
+
+
+ここでソボレフの埋め込み定理より，
+\begin{align}
+  \norm{u}_{L^3}\leq C_{\sigma,3} \norm{u}_{H^1_0}\leq C_{\sigma,3}\norm{u}_\sigma\\
+  \norm{u}_{L^4}\leq C_{\sigma,4} \norm{u}_{H^1_0}\leq C_{\sigma,4}\norm{u}_\sigma\\
+\end{align}
+が成り立つ．よって
+\begin{align}
+  &\norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(V,V^{-1})}\\
+  &\leq
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{2\beta}{\epsilon^2}\norm{l-w}_{L^3}\norm{\phi}_{L^3}\norm{\psi}_{L^3}}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &+
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{3\gamma}{\epsilon^2}\norm{l-w}_{L^4}\norm{l+w}_{L^4}\norm{\phi}_{L^4}\norm{\psi}_{L^4}}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &\leq
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{2\beta}{\epsilon^2}C^3_{\sigma,3}\norm{l-w}_\sigma\norm{\phi}_\sigma\norm{\psi}_\sigma}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &+
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{3\gamma}{\epsilon^2}C^4_{\sigma,4}\norm{l-w}_\sigma\norm{l+w}_\sigma\norm{\phi}_\sigma\norm{\psi}_\sigma}
+  {\norm{\psi}_\sigma\norm{\phi}_\sigma}\\
+  &=
+  \frac{2\beta}{\epsilon^2}
+  \qty(C^3_{\sigma,3}\norm{l-w}_\sigma)
+  +
+  \frac{3\gamma}{\epsilon^2}
+  \qty(C^4_{\sigma,4}\norm{l-w}_\sigma\norm{l+w}_\sigma)
+\end{align}
+したがって
+\(G\coloneqq \frac{2\beta}{\epsilon^2}
+  C^3_{\sigma,3}+\frac{3\gamma}{\epsilon^2}\qty(C^4_{\sigma,4}\norm{l+w}_\sigma)\)
+となる．
+ただし，\(\norm{l\pm w}_\sigma\)は\(l,w\in \bar{B}\qty(\hat{u},2a)\)から評価できる．
+

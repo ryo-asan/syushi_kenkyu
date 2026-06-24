@@ -1,0 +1,695 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{フィッツヒュー・南雲方程式に特化した手法}\label{Proposing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                        %第四章%     %フィッツヒュー・南雲方程式に特化した手法%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\(\tilde{\mathcal{F}}\)ノルム}
+%%%%%%%%%%%%%%%%% [[[[Fチルダノルム]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\(\qty(u,v)_{H^1_0}\coloneqq\qty(\nabla u,\nabla v)\)を用いて，不安定解をもつ方程式に適用できる\(\tilde{\mathcal{F}}\)内積を導入する．
+この時，\(H^1_0\qty(\Omega)\)上の内積を次のように定める．
+\begin{align}\label{eq:4章f.tilde}
+    \qty(u,v)_{\tilde{\mathcal{F}}}\coloneqq\qty(\nabla u,\nabla v)_{L^2}+\qty(\dfrac{1}{\epsilon^2}(\alpha + 3\hat{u}^2\gamma +\delta \mathcal{B})u,v)_{L^2}
+\end{align}
+よって，\eqref{eq:4章f.tilde}が内積の公理を満たせばよい．
+\eqref{eq:4章f.tilde}の場合，
+\(\hat{u}^2 \geq 0,\alpha \geq 0,\gamma \geq 0, \delta \mathcal{B} \geq 0\)
+であるため，右辺が\((\nabla u,\nabla v)_{L^2}+(\frac{1}{\epsilon^2}(\alpha + 3\hat{u}^2\gamma +\delta \mathcal{B})u,v)_{L^2}\geq 0\)となる事から，内積の公理を満たすことがわかる．
+この内積から誘導されるノルムを
+\begin{align}
+    \norm{u}_{\tilde{\mathcal{F}}} \coloneqq \sqrt{(u,u)_{\tilde{\mathcal{F}}}}
+\end{align}
+で定義する.
+ここで，\(W\)を\(H^1_0(\Omega)\)に\(\tilde{F}\)の内積を導入したHilbert空間とする．
+また，\(W_N\)を\(W\)の有限次元部分空間とし，\(W_\perp\)を\(W\)の\(W_N\)に対する直交補空間とする．
+また，\(W^{-1}\)を\(W\)の共役空間とし，そのノルムを
+\begin{align}
+  \norm{u}_{\tilde{\mathcal{F}}^{-1}}
+    =
+   \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+   \frac{|\langle u,v \rangle|}{\norm{v}_{\tilde{\mathcal{F}}}}
+\end{align}
+とする．
+そのノルムで Newton-Kantorovich の定理を考える．
+
+%\begin{align}
+%    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+%    \frac{|( T,v )|}{\norm{v}_{\tilde{\mathcal{F}}}}
+%\end{align}
+\section{\(K\)の評価}%えーたの評価までここで述べる% %C_{\tilde{\mathcal{F}}}ものべる%
+%%%%%%%%%%%%%%%%% [[[[Kの評価]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\(\norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L(W^{-1},W)} \leq K\)
+を満たす\(K\)を評価する．\\
+線形作用素\(\mathcal{A}_{\tilde{\mathcal{F}}}\coloneqq H^1_0(\Omega)\rightarrow H^{-1}(\Omega)\)を
+\begin{align}
+   \langle \mathcal{A}_{\tilde{\mathcal{F}}} u , w \rangle 
+   \coloneqq 
+   \qty(u,v)_{\tilde{\mathcal{F}}}
+  %  (\nabla u , \nabla w)_{L^2}
+  %  +\qty(\dfrac{1}{\epsilon^2}(\alpha + 3\hat{u}^2\gamma +\delta \mathcal{B})u , w)_{L^2}
+\end{align}
+とすると，作用素ノルムの定義より，\(\norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L\qty(W^{-1},W)} \)
+は次のように表すことができる．
+\begin{align}
+    \norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L\qty(W^{-1},W)} 
+    &=
+    \sup\limits_{\phi \in H^{-1}(\Omega) \backslash \{ 0 \} }
+    \dfrac{\norm{\mathcal{F}'\qty[\hat{u}]^{-1}\phi}_{\tilde{\mathcal{F}}}}{\norm{\phi}_{\tilde{\mathcal{F}}^{-1}}}\\
+    &=
+    \sup\limits_{\phi \in H^1_0 (\Omega)\backslash \{ 0 \} }
+    \dfrac{\norm{\phi}_{\tilde{\mathcal{F}}}}{\norm{\mathcal{F}'\qty[\hat{u}]\phi}_{\tilde{\mathcal{F}}^{-1}}}\\
+    &=
+    \sup\limits_{\phi \in H^1_0 (\Omega)\backslash \{ 0 \} }
+    \dfrac{\norm{\phi}_{\tilde{\mathcal{F}}}}{\norm{\mathcal{A}_{\tilde{\mathcal{F}}}^{-1} \mathcal{F}'\qty[\hat{u}] \phi}_{\tilde{\mathcal{F}}}}\\
+\end{align}
+ここで，\(\mathcal{A}_{\tilde{\mathcal{F}}}^{-1} \mathcal{F}'\qty[\hat{u}]\)についてスペクトル分解すると
+\(\mathcal{A}_{\tilde{\mathcal{F}}}^{-1} \mathcal{F}'\qty[\hat{u}] = \int \mu d E\)
+と置き換えられる．\\
+したがって，
+\begin{align}
+  \norm{\mathcal{F}'\qty[\hat{u}]^{-1}}_{L\qty(W^{-1},W)} 
+  &=
+  \sup\limits_{\phi \in H^1_0 (\Omega)\backslash \{ 0 \} }
+  \dfrac{\norm{\phi}_{\tilde{\mathcal{F}}}}{\norm{\int \mu d E\phi}_{\tilde{\mathcal{F}}}}\\
+  &\leq
+  \sup\limits_{\phi \in H^1_0 (\Omega)\backslash \{ 0 \} }
+  \dfrac{\norm{\phi}_{\tilde{\mathcal{F}}}}{|\mu |\norm{\int d E\phi}_{\tilde{\mathcal{F}}}}\\
+  &\leq
+  \dfrac{1}{|\mu_1|}
+\end{align}
+と評価できる．このとき，\(\mu\) はスカラとして取り出すことができ， 
+絶対値をつけることで右辺が大きくなる．
+なお，\(\mu_1\) はゼロに最も近い絶対最小固有値を意味する．
+ここで，非線形作用素\(\mathcal{N}_{\tilde{\mathcal{F}}}\coloneqq H^1_0(\Omega)\rightarrow H^{-1}(\Omega)\)を
+\begin{align}
+  \langle \mathcal{N}_{\tilde{\mathcal{F}}} (u) , w \rangle
+  \coloneqq \qty(\frac{f(u)-\delta \mathcal{B}u}{\epsilon^2} , w)_{L^2}
+  +\qty(\dfrac{1}{\epsilon^2}(\alpha + 3\hat{u}^2\gamma +\delta \mathcal{B})u , w)_{L^2},\;\;\forall w \in H^1_0(\Omega)
+\end{align}
+とする．
+固有値 \(\mu\) の下界評価にあたり，
+\begin{align}
+  \qty(\mathcal{A}_{\tilde{\mathcal{F}}} - \mathcal{N}'_{\tilde{\mathcal{F}}} [\hat{u}])u =\mu \mathcal{A}_{\tilde{\mathcal{F}}} u
+\end{align}
+を考える．
+この時
+\begin{align}
+  \dfrac{1}{\mu} = \dfrac{\eta}{\eta - 1}
+\end{align}
+とすることで，
+\begin{align}\label{eq:4固有値前}
+  \mathcal{A}_{\tilde{\mathcal{F}}} u = \eta \mathcal{N'}_{\tilde{\mathcal{F}}}[\hat{u}] u 
+\end{align}
+とすることができる．また，新しく\(d\)内積を以下のように定義する．
+\begin{align}
+   (u,w)_d \coloneqq \qty(\dfrac{f'[u]-\delta \mathcal{B}}{\epsilon^2}u,w)_{L^2}+\qty(\dfrac{1}{\epsilon^2}(\alpha + 3\hat{u}^2\gamma +\delta \mathcal{B})u,w)_{L^2}
+\end{align}
+\eqref{eq:4固有値前}を固有値問題に書き直すと
+\begin{align}
+  \text{Find} \;\;\;\eta \in \mathbb{R}\;\;\; \text{and} \;u\in H^1_0(\Omega)\;\text{s.t.}\;(u, w)_{\tilde{\mathcal{F}}} = \eta (u,w)_d,\;\forall w \in H^1_0 (\Omega)
+\end{align}
+のスペクトル\(\eta\)は固有値となり，\(\qty{\eta_i}^\infty_{i=1}\)とする．
+また離散化すると
+\begin{align}
+  \text{Find} \;\;\;\eta^h \in \mathbb{R} \;\;\text{and} \;\;u_h\in W_h\;\text{s.t.}\;(u_h, w_h)_{\tilde{\mathcal{F}}} = \eta^h (u_h,w_h)_d,\;\forall w_h \in W_h (\Omega)
+\end{align}
+となり，その固有値を\(\qty{\eta^h_i}^n_{i=1}\)とする．\\
+直交射影\(\mathcal{P}_{h,\tilde{\mathcal{F}}}:H^1_0(\Omega)\rightarrow W_h\)は
+\(\qty(u-\mathcal{P}_{h,\tilde{\mathcal{F}} }u , \phi_h)_{\tilde{\mathcal{F}}} = 0,\phi_h\in W_N\)
+を満たすとする．定数\(C_{h,d}\)は不等式
+\begin{align}\label{eq:C&v-p}
+  \norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_d 
+  \leq C_{h,d} 
+  \norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_{\tilde{\mathcal{F}}},
+  \;\;\forall x \in H^1_0(\Omega)
+\end{align}
+を満たすとする．そのとき，劉・大石の定理より，\(i \leq n\)となる整数\(i\)番目の固有値\(\eta_i\)は
+\begin{align}
+  \dfrac{\eta^h_i}{1+C_{h,d}^2\eta^h_i} \leq \eta_i \leq  \eta^h_i
+\end{align}
+を満たす．
+
+\(C_{h,d}\)を求めるために，\eqref{eq:C&v-p}の両辺にある，\\
+\(
+  \norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_d ,\;\;\; \norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_{\tilde{\mathcal{F}}}
+\)
+の関係式を作る必要がある．
+
+任意の\( v \in H^1_0(\Omega)\)について，
+\begin{align}
+  {\norm{v}_d}^2 =(v,v)_d =(f'[\hat{u}]v,v)_{L^2}+\qty(\dfrac{1}{\epsilon^2}(\alpha + 3\hat{u}^2\gamma +\delta \mathcal{B})v,v)_{L^2}
+\end{align}
+である．
+このとき\(f'[\hat{u}]\)は，
+\begin{align}
+  f'[\hat{u}]=&\dfrac{1}{\epsilon^2}\qty(-\alpha+2\beta\hat{u}-3\gamma\hat{u}^2-\delta\mathcal{B})\\
+\end{align}
+であるため，
+\begin{align}
+  {\norm{v}_d}^2 &=(v,v)_d =(f'[\hat{u}]v,v)_{L^2}+\qty(\dfrac{1}{\epsilon^2}(\alpha + 3\hat{u}^2\gamma +\delta \mathcal{B})v,v)_{L^2}\\
+  &=((\dfrac{1}{\epsilon^2}\qty(2\beta\hat{u}))v,v)_{L^2}\\
+  &=\dfrac{1}{\epsilon^2}\norm{2\beta\hat{u}}_{L^\infty}\norm{v}_{L^2}^2
+\end{align}
+となる．
+よって，
+\begin{align}
+  \norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_d 
+  \leq&\sqrt{\dfrac{1}{\epsilon^2}\norm{2\beta\hat{u}}_{L^\infty}}\norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_{L^2}\\
+\end{align}
+さらに
+\begin{align}
+  \norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_{L^2}
+  \leq
+  C_{h,\tilde{\mathcal{F}}}\norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_{\tilde{\mathcal{F}}}
+\end{align}
+が成り立つので
+\begin{align}
+  \norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_d\leq C_{h,\tilde{\mathcal{F}}}\sqrt{\dfrac{1}{\epsilon^2}\norm{2\beta\hat{u}}_{L^\infty}}\norm{v-\mathcal{P}_{h,\tilde{\mathcal{F}}}v}_{\tilde{\mathcal{F}}}
+\end{align}
+となる．よって
+\begin{align}
+  C_{h,d}\coloneqq C_{h,\tilde{\mathcal{F}}}\sqrt{\dfrac{1}{\epsilon^2}\norm{2\beta\hat{u}}_{L^\infty}}
+\end{align}
+と評価できる．
+
+\section{\(C_{h,\tilde{\mathcal{F}}}\)の評価}
+\(L\)を\(L_{i,j}\coloneqq(\phi_i,\phi_j)_{L^2}\)，
+\(G\)を
+\(G\coloneqq (\nabla\phi_i,\nabla\phi_j)_{L^2}
++\qty(\dfrac{1}{\epsilon^2}(\alpha+3\gamma \hat{u}^2 + \delta \mathcal{B} )\phi_i,\phi_j)_{L^2}\)
+とすると，\(C_{h,\tilde{\mathcal{F}}}\)は
+\begin{align}
+  C_{h,\tilde{\mathcal{F}}} \coloneqq 
+  C_N\qty(1+\norm{L^{\frac{1}{2}}G^{-1}L^{\frac{T}{2}}}_E
+  \norm{\dfrac{1}{\epsilon^2}(\alpha+3\gamma \hat{u}^2 + \delta \mathcal{B} )}_{L(L^2)})
+\end{align}
+となる．
+
+\section{\(C_{p\tilde{\mathcal{F}}}\)の評価}
+定数\(C_{p\tilde{\mathcal{F}}}\)は
+\begin{align}
+   \norm{u}_{L^2}\leq C_{p\tilde{\mathcal{F}}} \norm{u}_{\tilde{\mathcal{F}}}
+\end{align}
+で定義される．これは
+\begin{align}
+  C_{p\tilde{\mathcal{F}}} \coloneqq 
+  \sqrt{\dfrac{1+C_{h,\tilde{\mathcal{F}}}^2\norm{L^{\frac{1}{2}}G^{-1}L^{\frac{T}{2}}}_E}{\norm{L^{\frac{1}{2}}G^{-1}L^{\frac{T}{2}}}_E}}
+\end{align}
+で評価できる．
+\section{\(R\)の評価}
+%%%%%%%%%%%%%%%%% [[[[Rの評価]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\(\norm{\mathcal{F}'(\hat{u})}_{W^{-1}}\leq \delta\)を評価する．
+\(\norm{\mathcal{F}'(\hat{u})}_{W^{-1}}\)はノルム\(\norm{\cdot}_{\tilde{\mathcal{F}}^{-1}}\)の定義より以下のように変形できる．
+
+\begin{align}
+    \norm{\mathcal{F}\qty(\hat{u})}_{\tilde{\mathcal{F}}^{-1}}
+    = 
+    \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+    \dfrac{\qty|\langle \mathcal{F}\qty(\hat{u}),\phi \rangle|}{\norm{\phi}_{\tilde{\mathcal{F}}}}
+\end{align}
+また，\(\bar{v} \coloneqq \mathcal{B}\hat{u}\)とし
+\begin{align}
+  \norm{\mathcal{F}\qty(\hat{u})}_{\tilde{\mathcal{F}}^{-1}}
+  =&
+  \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{\qty|\langle \mathcal{F}\qty(\hat{u}),\phi \rangle|}{\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  =&
+  \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{\qty|(\nabla \hat{u},\nabla \phi)_{L^2}-(f(\hat{u}),\phi)_{L^2}+\frac{\delta}{\epsilon^2}(\mathcal{B}\hat{u},\phi)_{L^2}|}{\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  =&
+  \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{|(\nabla \hat{u},\nabla \phi)_{L^2}-(f(\hat{u}),\phi)_{L^2}
+  +\frac{\delta}{\epsilon^2}(\bar{v},\phi)_{L^2}+(\frac{\delta}{\epsilon^2}\hat{v},\phi)_{L^2}-(\frac{\delta}{\epsilon^2}\hat{v},\phi)_{L^2}|}
+  {\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  \leq&
+  \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{|(\nabla \hat{u},\nabla \phi)_{L^2}-(f(\hat{u}),\phi)_{L^2}+(\frac{\delta}{\epsilon^2}\hat{v},\phi)_{L^2}|
+  +\frac{\delta}{\epsilon^2}|(\bar{v},\phi)_{L^2}-(\hat{v},\phi)_{L^2}|}
+  {\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  \leq&
+  \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{\norm{-\Delta \hat{u}-f(\hat{u})+\frac{\delta}{\epsilon^2}\hat{v}}_{L^2}\norm{\phi}_{L^2}}
+  {\norm{\phi}_{\tilde{\mathcal{F}}}}
+  +\qty|\frac{\delta}{\epsilon^2}|
+  \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{\norm{   \bar{v}-\hat{v}}_{L^2}\norm{\phi}_{L^2}}
+  {\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  \leq&
+  C_{p\tilde{\mathcal{F}}}\qty(
+  \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{\norm{-\Delta \hat{u}-f(\hat{u})+\frac{\delta}{\epsilon^2}\hat{v}}_{L^2}\norm{\phi}_{\tilde{\mathcal{F}}}}
+  {\norm{\phi}_{\tilde{\mathcal{F}}}})\\
+  +&
+  \qty|\frac{\delta}{\epsilon^2}|
+  C_{p\tilde{\mathcal{F}}}\qty(
+  \sup\limits_{\phi \in H^1_0\qty(\Omega) \backslash \{ 0 \} }
+  \dfrac{\norm{   \bar{v}-\hat{v}}_{L^2}\norm{\phi}_{\tilde{\mathcal{F}}}}
+  {\norm{\phi}_{\tilde{\mathcal{F}}}}
+  )\\
+  =&
+  C_{p\tilde{\mathcal{F}}}
+  \qty(
+    \norm{-\Delta \hat{u}-f(\hat{u})+\frac{\delta}{\epsilon^2}\hat{v}}_{L^2}
+    +\qty|\frac{\delta}{\epsilon^2}|
+    \norm{\bar{v}-\hat{v}}_{L^2}
+  )
+\end{align}
+と評価できる．また，\(C_{p\tilde{\mathcal{F}}}\)は\(\norm{v}_{L^2}\leq C_{p\tilde{\mathcal{F}}}\norm{v}_{\tilde{\mathcal{F}}}\)を満たす定数とする．
+ここで新しく\(r\)内積を以下のように定義する．
+\begin{align}
+   (u,v)_r \coloneqq (\nabla u,\nabla v)_{L^2}+r(u,v)_{L^2}
+\end{align}
+\(r\)内積から誘導される\(r\)ノルムを用いると，
+\begin{align}
+   \norm{\mathcal{F}\qty(\hat{u})}_{\tilde{\mathcal{F}}^{-1}}
+   \leq&
+   C_{p\tilde{\mathcal{F}}}\qty(\norm{-\Delta \hat{u}-f(\hat{u})+\dfrac{\delta}{\epsilon^2}\hat{v}}_{L^2}+\qty|\dfrac{\delta}{\epsilon^2}|\norm{\bar{v}-\hat{v}}_{r})\\
+   \leq&
+   C_{p\tilde{\mathcal{F}}}\qty(\norm{-\Delta \hat{u}-f(\hat{u})+\dfrac{\delta}{\epsilon^2}\hat{v}}_{L^2}+\qty|\dfrac{\delta}{\epsilon^2}|C_r\norm{-\hat{u}-(\Delta-r)\hat{v}}_{L^2})\\
+\end{align}
+この時，
+\begin{align}
+   &\norm{\bar{v}-\hat{v}}_r\\
+   \leq&C_r\norm{-\hat{u}-(\Delta-r)\hat{v}}_{L^2}
+\end{align}
+となる\(C_r\)が存在する．
+% \begin{align}
+%    &\qty|(\nabla \hat{u},\nabla \phi)_{L^2}-(f(\hat{u}),\phi)_{L^2}+\frac{\delta}{\epsilon^2}(\mathcal{B}\hat{u},\phi)_{L^2}|\\
+%    =&\qty|(\nabla \hat{u},\nabla \phi)_{L^2}-(f(\hat{u}),\phi)_{L^2}+\frac{\delta}{\epsilon^2}(\hat{v},\phi)_{L^2}|
+%    +\qty|\frac{\delta}{\epsilon^2}(\mathcal{B}\hat{u},\phi)_{L^2}-\frac{\delta}{\epsilon^2}(\hat{v},\phi)_{L^2}|\\
+% \end{align}
+% \begin{align}
+%    &\qty|\frac{\delta}{\epsilon^2}(\mathcal{B}\hat{u},\phi)_{L^2}-\frac{\delta}{\epsilon^2}(\hat{v},\phi)_{L^2}|\\
+%    =&\qty|\frac{\delta}{\epsilon^2}|\qty|(\mathcal{B}\hat{u},\phi)_{L^2}-(\hat{v},\phi)_{L^2}|\\
+%    =&\qty|\frac{\delta}{\epsilon^2}|\qty|(\bar{v},\phi)_{L^2}-(\hat{v},\phi)_{L^2}|\\
+% \end{align}
+ここで，
+\begin{align}
+   (\Delta-r)\bar{v}&=-\hat{u}\\
+   (\Delta-r)(\bar{v}-\hat{v})&=-\hat{u}-(\Delta-r)\hat{v}\\
+   \bar{v}-\hat{v}&=(\Delta-r)^{-1}(-\hat{u}-(\Delta-r)\hat{v})
+\end{align}
+であり，
+\begin{align}
+   &\norm{\bar{v}-\hat{v}}_r\\
+   \leq&C_r\norm{(\Delta-r)((\Delta-r)^{-1}(-\hat{u}-(\Delta-r)\hat{v}))}_{L^2}\\
+   =&C_r\norm{-\hat{u}-(\Delta-r)\hat{v}}_{L^2}
+\end{align}
+である\(C_r\)を求めたい．
+\(\norm{\hat{v}-P_{h,r}v}_r\)について式変形をすると
+\begin{align}
+   &\norm{\hat{v}-P_{h,r}v}_r^2\\
+   =&\norm{(I-P_{h,r})\hat{v}}_r^2\\
+   \leq&\norm{(I-P_{h})\hat{v}}_{H^1_0}+r\norm{(I-P_{h})\hat{v}}_{L^2}\\
+   \leq&\norm{(I-P_{h})\hat{v}}_{H^1_0}+rC_{N}^2\norm{(I-P_{h})\hat{v}}_{H^1_0}\\
+   =&(1+rC_N^2)\norm{(I-P_{h})\hat{v}}_{H^1_0}\\
+   \leq&(1+rC_N^2)C_N^2\norm{\Delta\hat{v}}_{L^2}\\
+   \leq&(1+rC_N^2)C_N^2\norm{(\Delta-r)\hat{v}}_{L^2}\\
+\end{align}
+このことから，
+\begin{align}
+   C_r=C_N\sqrt{(1+rC_N^2)}
+\end{align}
+となる．
+よって，
+\begin{align}
+   \norm{\bar{v}-\hat{v}}_r
+   \leq
+   C_N\sqrt{(1+rC_N^2)}\norm{-\hat{u}-(\Delta-r)\hat{v}}_{L^2}
+\end{align}
+となる．
+よって\(\norm{\mathcal{F}'(\hat{u})}_{\tilde{\mathcal{F}}^{-1}}\)は
+\begin{align}
+   \norm{\mathcal{F}'(\hat{u})}_{\tilde{\mathcal{F}}^{-1}}
+   \leq&
+   C_{p\tilde{\mathcal{F}}}\qty(\norm{-\Delta \hat{u}-f(\hat{u})+\dfrac{\delta}{\epsilon^2}\hat{v}}_{L^2}+\qty|\dfrac{\delta}{\epsilon^2}|\qty(C_N\sqrt{(1+rC_N^2)})\norm{-\hat{u}-(\Delta-r)\hat{v}}_{L^2})\\
+   \eqqcolon & R
+\end{align}
+となる．\\
+まず\(\norm{-\Delta \hat{u}-f(\hat{u})+\dfrac{\delta}{\epsilon^2}\hat{v}}_{L^2}\)を計算する．
+ノルムの定義より，\(\norm{-\Delta \hat{u}-f(\hat{u})+\dfrac{\delta}{\epsilon^2}\hat{v}}_{L^2}\)を２乗すると，
+\begin{align}
+   &\norm{-\Delta \hat{u}-(\dfrac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v}))}_{L^2}^2\\
+   &=(-\Delta \hat{u}-(\dfrac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})),
+      -\Delta \hat{u}-(\dfrac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})))_{L^2}
+\end{align}
+となる．ここからそれぞれの項ごとに計算すると，
+\begin{align}
+   =&(-\Delta \hat{u},-\Delta \hat{u})_{L^2}\\
+   +&\qty(-\Delta \hat{u},-\qty(\dfrac{1}{\epsilon^2}\qty(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})))_{L^2}\\
+   +&\qty(-\qty(\frac{1}{\epsilon^2}\qty(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})),-\Delta \hat{u})_{L^2}\\
+   +&\qty(-\qty(\frac{1}{\epsilon^2}\qty(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})),-\qty(\frac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})))_{L^2}\\
+\end{align}
+ここで，
+\(\qty(-\Delta \hat{u},-\qty(\frac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})))_{L^2}
++\qty(-\qty(\frac{1}{\epsilon^2}\qty(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})),-\Delta \hat{u})_{L^2}\)
+について式変形をすると，
+\begin{align}
+ &\qty(-\Delta \hat{u},-\qty(\frac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})))_{L^2}
+ +\qty(-\qty(\frac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})),-\Delta \hat{u})_{L^2}\\
+ &=
+ \dfrac{2}{\epsilon^2}\{(-\Delta \hat{u},\alpha \hat{u})_{L^2}
+ +(-\Delta \hat{u},-\beta \hat{u}^2)_{L^2}
+ +(-\Delta \hat{u},\gamma \hat{u}^3)_{L^2}
+ +(-\Delta \hat{u},\delta \hat{v})_{L^2}\}\\
+ &=
+ \dfrac{2}{\epsilon^2}\{\alpha(-\Delta \hat{u},\hat{u})_{L^2}
+ -\beta(-\Delta \hat{u}, \hat{u}^2)_{L^2}
+ +\gamma(-\Delta \hat{u}, \hat{u}^3)_{L^2}
+ +\delta(-\Delta \hat{u}, \hat{v})_{L^2}\}\\
+\end{align}
+と変形できる．また，
+\(\qty(-\qty(\dfrac{1}{\epsilon^2}\qty(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})),
+   -\qty(\dfrac{1}{\epsilon^2}\qty(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})))_{L^2}\)
+について式変形をすると，
+\begin{align}
+  &\qty(-\qty(\dfrac{1}{\epsilon^2}\qty(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})),
+   -\qty(\dfrac{1}{\epsilon^2}\qty(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v})))_{L^2}\\
+  =&
+  \qty(-\dfrac{1}{\epsilon^2}(-\alpha \hat{u}),-\frac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v}))_{L^2}\\
+  +&
+  \qty(-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2),-\frac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v}))_{L^2}\\
+  +&
+  \qty(-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3),-\frac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v}))_{L^2}\\
+  +&
+  \qty(-\dfrac{1}{\epsilon^2}(-\delta \hat{v}),-\frac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v}))_{L^2}\\
+\end{align}
+と変形できる．
+各項ごとに計算すると\\
+１項
+\begin{align}
+  &\qty(-\frac{1}{\epsilon^2}(-\alpha \hat{u}),-\dfrac{1}{\epsilon^2}(-\alpha \hat{u}))_{L^2}
+  =\dfrac{1}{\epsilon^4}\alpha^2 \int \hat{u}(x)^2 dx\\
+  &\qty(-\frac{1}{\epsilon^2}(-\alpha \hat{u}),-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2))_{L^2}
+  =-\dfrac{1}{\epsilon^4}\alpha\beta \int \hat{u}(x)^3 dx\\
+  &\qty(-\frac{1}{\epsilon^2}(-\alpha \hat{u}),-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3))_{L^2}
+  =\dfrac{1}{\epsilon^4}\alpha\gamma \int \hat{u}(x)^4 dx\\
+  &\qty(-\frac{1}{\epsilon^2}(-\alpha \hat{u}),-\dfrac{1}{\epsilon^2}(-\delta \hat{v}))_{L^2}
+  =\dfrac{1}{\epsilon^4}\alpha\delta \int \hat{u}(x)\hat{v}(x) dx\\
+\end{align}
+２項
+\begin{align}
+  &\qty(-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2),-\dfrac{1}{\epsilon^2}(-\alpha \hat{u}))_{L^2}
+  =-\dfrac{1}{\epsilon^4}\alpha\beta \int \hat{u}(x)^3 dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2),-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2))_{L^2}
+  =\dfrac{1}{\epsilon^4}\beta^2 \int \hat{u}(x)^4 dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2),-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3))_{L^2}
+  =-\dfrac{1}{\epsilon^4}\beta\gamma \int \hat{u}(x)^5 dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2),-\dfrac{1}{\epsilon^2}(-\delta \hat{v}))_{L^2}
+  =-\dfrac{1}{\epsilon^4}\beta\delta \int \hat{u}(x)^2\hat{v}(x) dx\\
+\end{align}
+３項
+\begin{align}
+  &\qty(-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3),-\dfrac{1}{\epsilon^2}(-\alpha \hat{u}))_{L^2}
+  =\dfrac{1}{\epsilon^4}\alpha\gamma \int \hat{u}(x)^4 dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3),-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2))_{L^2}
+  =-\dfrac{1}{\epsilon^4}\beta\gamma \int \hat{u}(x)^5 dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3),-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3))_{L^2}
+  =\dfrac{1}{\epsilon^4}\gamma^2 \int \hat{u}(x)^6 dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3),-\dfrac{1}{\epsilon^2}(-\delta \hat{v}))_{L^2}
+  =\dfrac{1}{\epsilon^4}\gamma\delta \int \hat{u}(x)^3\hat{v}(x) dx\\
+\end{align}
+４項
+\begin{align}
+  &\qty(-\dfrac{1}{\epsilon^2}(-\delta \hat{v}),-\dfrac{1}{\epsilon^2}(-\alpha \hat{u}))_{L^2}
+  =\dfrac{1}{\epsilon^4}\alpha\delta \int \hat{u}(x)\hat{v}(x) dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(-\delta \hat{v}),-\dfrac{1}{\epsilon^2}(\beta \hat{u}^2))_{L^2}
+  =-\dfrac{1}{\epsilon^4}\beta\delta \int \hat{u}(x)^2\hat{v}(x) dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(-\delta \hat{v}),-\dfrac{1}{\epsilon^2}(-\gamma \hat{u}^3))_{L^2}
+  =\dfrac{1}{\epsilon^4}\gamma\delta \int \hat{u}(x)^3\hat{v}(x) dx\\
+  &\qty(-\dfrac{1}{\epsilon^2}(-\delta \hat{v}),-\dfrac{1}{\epsilon^2}(-\delta \hat{v}))_{L^2}
+  =\dfrac{1}{\epsilon^4}\delta^2 \int \hat{v}(x)^2 dx\\
+\end{align}
+となる．したがって上記の式変形をまとめると
+\begin{align}
+  &\norm{-\Delta \hat{u}-(\dfrac{1}{\epsilon^2}(-\alpha \hat{u} + \beta \hat{u}^2 -\gamma \hat{u}^3-\delta \hat{v}))}_{L^2}^2\\
+  =&(-\Delta \hat{u},-\Delta \hat{u})_{L^2}\\%first%
+  +&\dfrac{2}{\epsilon^2}\{\alpha(-\Delta \hat{u},\hat{u})_{L^2}%second%
+  -\beta(-\Delta \hat{u}, \hat{u}^2)_{L^2}
+  +\gamma(-\Delta \hat{u}, \hat{u}^3)_{L^2}
+  +\delta(-\Delta \hat{u}, \hat{v})_{L^2}\}\\
+  +&\dfrac{1}{\epsilon^4}\delta^2 \int \hat{v}(x)^2 dx+\dfrac{2}{\epsilon^4}\alpha\delta \int \hat{u}(x)\hat{v}(x) dx\\
+  +&\dfrac{1}{\epsilon^4}\alpha^2 \int \hat{u}(x)^2 dx
+  -\dfrac{1}{\epsilon^4}2\beta\delta \int \hat{u}(x)^2\hat{v}(x) dx\\
+  +&\dfrac{1}{\epsilon^4}2\alpha\beta\int \hat{u}(x)^3 dx
+  +\dfrac{1}{\epsilon^4}2\gamma\delta \int \hat{u}(x)^3\hat{v}(x) dx\\
+  +&\dfrac{1}{\epsilon^4}(2\alpha\gamma+\beta^2) \int \hat{u}(x)^4 dx -\dfrac{1}{\epsilon^4}2\beta\gamma \int \hat{u}(x)^5 dx +\dfrac{1}{\epsilon^4}\gamma^2 \int \hat{u}(x)^6 dx\\
+\end{align}
+となる．
+次に\(\norm{-\hat{u}-(\Delta-r)\hat{v}}_{L^2}\)を計算する．ノルムの定義より
+\begin{align}
+  &\norm{-\hat{u}-(\Delta - r)\hat{v}}^2_{L^2}\\
+  =&(-\hat{u}-(\Delta - r)\hat{v},-\hat{u}-(\Delta - r)\hat{v})_{L^2}\\
+  =&(\hat{u},\hat{u})_{L^2}+(-(\Delta - r)\hat{v},-\hat{u})_{L^2}+(-\hat{u},-(\Delta - r)\hat{v})_{L^2}+(-(\Delta - r)\hat{v},-(\Delta - r)\hat{v})_{L^2}
+\end{align}
+この時，\((\hat{u},\hat{u})_{L^2}\)は
+\begin{align}
+  (\hat{u},\hat{u})_{L^2}=\int \hat{u}(x)^2 dx
+\end{align}
+となる．また，
+\((-(\Delta - r)\hat{v},\hat{u})_{L^2}
+  +(\hat{u},-(\Delta - r)\hat{v})_{L^2}\)は，
+  \begin{align}
+    &(-(\Delta - r)\hat{v},-\hat{u})_{L^2}+(-\hat{u},-(\Delta - r)\hat{v})_{L^2}\\
+    &=2\qty((-\Delta \hat{v},-\hat{u})_{L^2}+(r \hat{v},-\hat{u})_{L^2})
+  \end{align}
+となる．
+そして，\((-(\Delta - r)\hat{v},-(\Delta - r)\hat{v})_{L^2}\)は
+\begin{align}
+  &(-(\Delta - r)\hat{v},-(\Delta - r)\hat{v})_{L^2}\\
+  &=(-\Delta \hat{v},-\Delta \hat{v})_{L^2}
+  +(-\Delta \hat{v},r \hat{v})_{L^2}
+  +(r \hat{v},-\Delta \hat{v})_{L^2}
+  +(r \hat{v},r \hat{v})_{L^2}\\
+  &=(-\Delta \hat{v},-\Delta \hat{v})_{L^2}
+  -2r(\Delta \hat{v}, \hat{v})_{L^2}
+  +r^2( \hat{v}, \hat{v})_{L^2}
+\end{align}
+まとめると，
+% \norm{\hat{u}-(\Delta+r)\hat{v}}_{L^2}^2=
+% (\hat{u},\hat{u})_{L^2}
+% +2\qty((-\Delta \hat{v},\hat{u})_{L^2}-r( \hat{v},\hat{u})_{L^2})
+% +r^2 (\hat{v},\hat{v})_{L^2}+(-\Delta \hat{v},-\Delta \hat{v})_{L^2}
+% +2r(-\Delta \hat{v},- \hat{v})_{L^2}
+% +r^2( \hat{v}, \hat{v})_{L^2}
+\begin{align}
+  &\norm{-\hat{u}-(\Delta-r)\hat{v}}_{L^2}^2\\
+  &=
+  (\hat{u},\hat{u})_{L^2}\\
+  &+2\qty((-\Delta \hat{v},-\hat{u})_{L^2}+(r \hat{v},-\hat{u})_{L^2})\\
+  &+(-\Delta \hat{v},-\Delta \hat{v})_{L^2}
+  -2r(\Delta \hat{v}, \hat{v})_{L^2}
+  +r^2( \hat{v}, \hat{v})_{L^2}
+\end{align}
+である．
+よって，\(R\)は，\(C_{p\tilde{\mathcal{F}}}\)と
+\begin{align}
+  &(-\Delta \hat{u},-\Delta \hat{u})_{L^2}\\%first%
+  +&\dfrac{2}{\epsilon^2}\{\alpha(-\Delta \hat{u},\hat{u})_{L^2}%second%
+  -\beta(-\Delta \hat{u}, \hat{u}^2)_{L^2}
+  +\gamma(-\Delta \hat{u}, \hat{u}^3)_{L^2}
+  +\delta(-\Delta \hat{u}, \hat{v})_{L^2}\}\\
+  +&\dfrac{1}{\epsilon^4}\delta^2 \int \hat{v}(x)^2 dx+\dfrac{2}{\epsilon^4}\alpha\delta \int \hat{u}(x)\hat{v}(x) dx\\
+  +&\dfrac{1}{\epsilon^4}\alpha^2 \int \hat{u}(x)^2 dx
+  -\dfrac{1}{\epsilon^4}2\beta\delta \int \hat{u}(x)^2\hat{v}(x) dx\\
+  +&\dfrac{1}{\epsilon^4}2\alpha\beta\int \hat{u}(x)^3 dx
+  +\dfrac{1}{\epsilon^4}2\gamma\delta \int \hat{u}(x)^3\hat{v}(x) dx\\
+  +&\dfrac{1}{\epsilon^4}(2\alpha\gamma+\beta^2) \int \hat{u}(x)^4 dx 
+  -\dfrac{1}{\epsilon^4}2\beta\gamma \int \hat{u}(x)^5 dx 
+  +\dfrac{1}{\epsilon^4}\gamma^2 \int \hat{u}(x)^6 dx
+\end{align}
+の平方根と
+\begin{align}
+  C_r
+  \qty((\hat{u},\hat{u})_{L^2}
+  +2(-\Delta \hat{v},-\hat{u})_{L^2}+2(r \hat{v},-\hat{u})_{L^2}
+  +(-\Delta \hat{v},-\Delta \hat{v})_{L^2}
+  -2r(\Delta \hat{v}, \hat{v})_{L^2}
+  +r^2( \hat{v}, \hat{v})_{L^2})
+\end{align}
+の平方根の和で求められる．
+
+
+\section{\(G\)の評価}
+%%%%%%%%%%%%%%%%% [[[[Gの評価]]]] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\(
+    \norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(W,W^{-1})}
+    \leq
+    G\norm{w-l}_{\tilde{\mathcal{F}}}
+\)
+を評価する．
+\begin{align}
+    \norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(W,W^{-1})}
+    =
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \dfrac
+    {\norm{\qty(\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l])\phi}_{{\tilde{\mathcal{F}}}^{-1}}}
+    {\norm{\phi}_{{\tilde{\mathcal{F}}}}} 
+\end{align}
+共役空間のノルム
+\(
+    \norm{T}_{{\tilde{\mathcal{F}}}^{-1}}=
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \dfrac{|( T,\phi )_{L^2}|}{\norm{\phi}_{\tilde{\mathcal{F}}}}
+\)
+より
+\begin{align}
+    \norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(W,W^{-1})}
+    =&
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {\norm{\qty(\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l])\phi}_{{\tilde{\mathcal{F}}}^{-1}}}
+    {\norm{\phi}_{{\tilde{\mathcal{F}}}}}\\ 
+    =&
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {\sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {|\langle \mathcal{F}'\qty[w]-\mathcal{F}'\qty[l],\psi \rangle|}
+    {\norm{\psi}_{\tilde{\mathcal{F}}}}}
+    {\norm{\phi}_{{\tilde{\mathcal{F}}}}}\\
+    =&
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {|\langle \qty(\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l])\phi,\psi \rangle|}
+    {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}
+\end{align}
+ここで
+\begin{align}
+    \mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]
+    =\mathcal{A} - \mathcal{N}'\qty[w]-\qty(\mathcal{A} - \mathcal{N}'\qty[l])
+    =-\mathcal{N}'\qty[w]+\mathcal{N}'\qty[l]
+\end{align}
+であるので，
+\begin{align}
+    \norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(W,W^{-1})}
+    =
+    \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+    \frac
+    {|\langle -\qty(\mathcal{N}'\qty[w]+\mathcal{N}'\qty[l])\phi,\psi \rangle|}
+    {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}
+\end{align}
+と置き換えられる．また
+\begin{align}
+  % \mathcal{N}'\qty[w]=&\frac{1}{\epsilon^2}\qty(f^\prime[w]-\delta \mathcal{B})\\
+  % \mathcal{N}'\qty[l]=&\frac{1}{\epsilon^2}\qty(f^\prime[l]-\delta \mathcal{B})
+  &\langle \mathcal{N}'\qty[w]\phi,\psi \rangle =\qty(\frac{1}{\epsilon^2}\qty(f^\prime[w]-\delta \mathcal{B})\phi,\psi)_{L^2}\\
+  &\langle \mathcal{N}'\qty[l]\phi,\psi \rangle =\qty(\frac{1}{\epsilon^2}\qty(f^\prime[l]-\delta \mathcal{B})\phi,\psi)_{L^2} 
+\end{align}
+より，
+\begin{align}
+  &\norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(W,W^{-1})}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\qty| \qty(\qty(-\frac{1}{\epsilon^2}\qty(f^\prime[w]-\delta \mathcal{B}) 
+  + \frac{1}{\epsilon^2}\qty(f^\prime[l]-\delta \mathcal{B}))\phi,\psi)_{L^2} |}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\qty| \qty(\qty(\frac{1}{\epsilon^2}\qty(f^\prime[l]-f^\prime[w]))\phi,\psi)_{L^2} |}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+\end{align}
+この時，
+\begin{align}
+  &f[l]=-\alpha l + \beta l^2 - \gamma l^3\\
+  &f[w]=-\alpha w + \beta w^2 - \gamma w^3\\
+\end{align}
+とすると，
+\begin{align}
+  &f^\prime[l]=-\alpha  + \beta l - \gamma l^2\\
+  &f^\prime[w]=-\alpha  + \beta w - \gamma w^2\\
+\end{align}
+であるので,
+\begin{align}
+  &\norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(W,W^{-1})}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\qty| (\qty(\frac{1}{\epsilon^2}\qty(f^\prime[l]-f^\prime[w]))\phi,\psi)_{L^2} |}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\qty|( \qty(\frac{1}{\epsilon^2}
+  \qty(\qty(-\alpha  + \beta l - \gamma l^2)-\qty(-\alpha  + \beta w - \gamma w^2)))\phi,\psi )_{L^2}|}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  &=
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\qty|( \qty(\frac{1}{\epsilon^2}
+  \qty(\beta\qty(l-w)-\gamma\qty(l+w)\qty(l-w)))\phi,\psi )_{L^2}|}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  &\leq
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{\beta}{\epsilon^2}\norm{l-w}_{L^3}
+  \norm{\psi}_{L^3}\norm{\phi}_{L^3}}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  &+
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{\gamma}{\epsilon^2}\norm{l-w}_{L^4}\norm{l+w}_{L^4}
+  \norm{\psi}_{L^4}\norm{\phi}_{L^4}}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+\end{align}
+ここでソボレフの埋め込み定理より，
+\begin{align}
+  \norm{u}_{L^3}\leq C_{{\tilde{\mathcal{F}}},3} \norm{u}_{H^1_0}\leq C_{{\tilde{\mathcal{F}}},3}\norm{u}_{\tilde{\mathcal{F}}}\\
+  \norm{u}_{L^4}\leq C_{{\tilde{\mathcal{F}}},4} \norm{u}_{H^1_0}\leq C_{{\tilde{\mathcal{F}}},4}\norm{u}_{\tilde{\mathcal{F}}}\\
+\end{align}
+が成り立つ．よって
+\begin{align}
+  &\norm{\mathcal{F}'\qty[w]-\mathcal{F}'\qty[l]}_{L\qty(W,W^{-1})}\\
+  \leq&
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{\beta}{\epsilon^2}\norm{l-w}_{L^3}\norm{\phi}_{L^3}\norm{\psi}_{L^3}}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  -&
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{\gamma}{\epsilon^2}\norm{l-w}_{L^4}\norm{l+w}_{L^4}\norm{\phi}_{L^4}\norm{\psi}_{L^4}}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  \leq&
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{\beta}{\epsilon^2}C^3_{{\tilde{\mathcal{F}}},3}\norm{l-w}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}\norm{\psi}_{\tilde{\mathcal{F}}}}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  -&
+  \sup\limits_{\phi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \sup\limits_{\psi \in H^1_0(\Omega) \backslash \{ 0 \} }
+  \frac
+  {\frac{\gamma}{\epsilon^2}C^4_{{\tilde{\mathcal{F}}},4}\norm{l-w}_{\tilde{\mathcal{F}}}\norm{l+w}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}\norm{\psi}_{\tilde{\mathcal{F}}}}
+  {\norm{\psi}_{\tilde{\mathcal{F}}}\norm{\phi}_{\tilde{\mathcal{F}}}}\\
+  =&
+  \frac{\beta}{\epsilon^2}
+  \qty(C^3_{{\tilde{\mathcal{F}}},3}\norm{l-w}_{\tilde{\mathcal{F}}})+\frac{\gamma}{\epsilon^2}\qty(C^4_{{\tilde{\mathcal{F}}},4}\norm{l-w}_{\tilde{\mathcal{F}}}\norm{l+w}_{\tilde{\mathcal{F}}})\\
+  \leq&
+  \frac{\beta}{\epsilon^2}
+  \qty(C^3_{{\tilde{\mathcal{F}}},3}\norm{l-w}_{\tilde{\mathcal{F}}})+\frac{\gamma}{\epsilon^2}\qty(C^4_{{\tilde{\mathcal{F}}},4}(2\norm{\hat{u}}_{\tilde{\mathcal{F}}}+4a)\norm{l-w}_{\tilde{\mathcal{F}}})\\
+\end{align}
+したがって
+%\(\frac{\beta}{\epsilon^2}
+%  \qty(C^3_{{\tilde{\mathcal{F}}},3}\norm{l-w}_{\tilde{\mathcal{F}}})+\frac{\gamma}{\epsilon^2}\qty(C^4_{{\tilde{\mathcal{F}}},4}(2\norm{\hat{u}}_{\tilde{\mathcal{F}}}+4a)\norm{l-w}_{\tilde{\mathcal{F}}})\)となる．
+\(G\coloneqq \frac{\beta}{\epsilon^2}
+  C^3_{\tilde{\mathcal{F}},3}+\frac{\gamma}{\epsilon^2}\qty(C^4_{\tilde{\mathcal{F}},4}(2\norm{\hat{u}}_{\tilde{\mathcal{F}}}+4a))\)となる．
+
+ただし，\(\norm{l\pm w}_{\tilde{\mathcal{F}}}\)は\(l,w\in \bar{B}\qty(\hat{u},2a)\)から評価できる．
+
+% 提案手法を書いてね

@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{bookoisi}
+大石進一.
+\newblock 精度保証付き数値計算の基礎.
+\newblock コロナ社, 2018.
+
+\bibitem{booknakao}
+中尾充宏, 渡部善隆.
+\newblock 実例で学ぶ精度保証付き数値計算 理論と実装.
+\newblock サイエンス社, 2011.
+
+\bibitem{kv}
+M.~Kashiwagi.
+\newblock kv - a c++ library for verified numerical computation.
+\newblock http://verifiedby.me/kv/, 閲覧日 2023/12/14.
+
+\bibitem{vcp}
+Kouta Sekine, Mitsuhiro~T. Nakao, and Shin'ichi Oishi.
+\newblock Numerical verification methods for a system of elliptic pdes, and their software library.
+\newblock {\em Nonlinear Theory and Its Applications, IEICE}, Vol.~12, No.~1, pp. 41--74, 2021.
+
+\end{thebibliography}

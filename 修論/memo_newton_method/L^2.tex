@@ -1,0 +1,98 @@
+\documentclass[a4paper, 11pt]{ltjsreport}
+\usepackage{luatexja}
+\usepackage{amssymb, amsmath}   % 数理環境用パッケージ
+\usepackage{amsthm}             % 定理環境用パッケージ
+\usepackage{ascmac}             % box環境用パッケージ
+% \usepackage[dvipdfmx]{graphicx}           % 画像環境用パッケージ
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{cite}%参考文献
+\usepackage{physics}%ノルムとかが書きやすくなる。
+\usepackage{listings}
+\usepackage{jvlisting}
+\theoremstyle{plain}
+\theoremstyle{definition}
+\newtheorem{公理}{公理}
+\newtheorem{定義}{定義}
+\newtheorem{定理}{定理}
+\newtheorem{証明}{証明}
+\newtheorem*{メモ}{メモ}
+
+\newtheorem{dfn}{Definition}
+
+\begin{document}
+\chapter{現状}
+\begin{equation}
+  \left\{ \,
+      \begin{aligned}
+          -\Delta u &= \frac{1}{\epsilon^2}\qty(-\alpha u +\beta u^2 -\gamma u^3 -\epsilon\qty(a v + b w ))\\
+          -\Delta v &= u-v \\
+          -\Delta w &= \frac{1}{d^2}\qty(u-w)\\
+          \norm{u}_{L^2} &= N
+          %\dot{v}&=v-\dfrac{v^3}{3}-w+I_{ext}\\
+          %\tau \dot{w}&=v-a-bw
+      \end{aligned}
+  \right.
+\end{equation}
+\begin{equation}
+  \left\{ \,
+      \begin{aligned}
+          -\Delta u &= \frac{1}{\epsilon^2}\qty(-\alpha u +\beta u^2 -\gamma u^3 -\epsilon\qty(a v + b w ))\\
+          -\Delta v &= u-v \\
+          -\Delta w &= \frac{1}{d^2}\qty(u-w)\\
+          \sqrt{\qty( u, u)_{L^2} } &= N
+          %\dot{v}&=v-\dfrac{v^3}{3}-w+I_{ext}\\
+          %\tau \dot{w}&=v-a-bw
+      \end{aligned}
+  \right.
+\end{equation}
+\begin{align}
+   \bm{F}(\bm{u},\epsilon) =Ku_h- \dfrac{-\alpha u_h + \beta  u_h^2 -\gamma  u_h^3-\epsilon(aL(K+L)^{-1}L+bL(d^2K+L)^{-1}) u_h}{\epsilon^2}
+\end{align}
+\begin{equation}
+    \bm{\mathcal{F}}(\bm{X}) = 
+    \begin{pmatrix}
+        \bm{F}(\bm{u}, \epsilon) \\
+        \sqrt{\bm{u}^T L \bm{u}} - N
+    \end{pmatrix}
+    = \bm{0}
+\end{equation}
+
+\newpage
+\begin{equation}
+    \begin{pmatrix}
+        \dfrac{\partial \bm{F}}{\partial \bm{u}} & \dfrac{\partial \bm{F}}{\partial \epsilon} \\[10pt]
+        \dfrac{\partial g}{\partial \bm{u}} & \dfrac{\partial g}{\partial \epsilon}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \Delta \bm{u} \\
+        \Delta \epsilon
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        -\bm{F}(\bm{u}, \epsilon) \\
+        -g(\bm{u})
+    \end{pmatrix}
+\end{equation}
+
+\begin{align}
+    \dfrac{\partial \bm{F}}{\partial \bm{u}} 
+    = 
+    % K - \dfrac{1}{\epsilon^2} \left( -\alpha L + 2\beta L u_h - 3\gamma L u_h^2 - \delta L(K+rL)^{-1}L \right)
+    K- \dfrac{-\alpha L + 2\beta  L u_h -3\gamma L u_h^2-\epsilon(aL(K+L)^{-1}L+bL(d^2K+L)^{-1}L) }{\epsilon^2}
+\end{align}
+\begin{align}
+  \dfrac{\partial \bm{F}}{\partial \epsilon}
+  =
+  \dfrac{2(-\alpha L u_h + \beta  u_h^2 -\gamma  u_h^3)}{\epsilon^3}
+  -\dfrac{(aL(K+L)^{-1}L+bL(d^2K+L)^{-1}L)u_h}{\epsilon^2}
+\end{align}
+\begin{align}
+  \dfrac{\partial g}{\partial \bm{u}}= \dfrac{u^T L}{2\sqrt{u^T L u}}
+\end{align}
+\begin{align}
+  \dfrac{\partial g}{\partial \epsilon}=0
+\end{align}
+\end{document}

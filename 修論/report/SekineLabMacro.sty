@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% This Macro is for Bachelor of Sekine Lab.
+%% This was created by Munehisa Takahashi and Rikuto Takashima on 12/20/2024.
+%% This was updated by Yuki Ishii on 11/4/2025.
+%% This was written in UTF-8.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% If you change this Macro, please write your name and changing date.
+%% Then, a original command must not delete.
+%% Please, disable the command with '%'.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{0}
+
+\newcommand{\JYear}[1]{\def\saveYear{{#1}}} %年度
+\newcommand{\StudentNumber}[1]{\def\saveNumber{学生番号 \hskip 1\zw {#1}}} %学生番号
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{center}%
+    \vskip 2\zw%
+    {\Large \saveYear \par}%
+    \vskip 2\zw%
+    {\Large 卒業論文 \par}
+    \vspace*{\stretch{30}}%
+    {\LARGE \@title \par}%
+    \vskip 2\zw%        
+    {\Large \@date \par}%
+    \vspace*{\stretch{200}}%
+    {\Large 指導教員　関根 晃太　准教授 \par}%
+    \vskip 2\zw%
+    {\Large 千葉工業大学　情報科学部　情報工学科 \par}%
+    \vskip 2\zw%        
+    {\Large \saveNumber \par}%
+    \vskip 2\zw%        
+    {\Large \@author \par}%
+    \vspace*{\stretch{0}}%
+  \end{center}%
+  \thispagestyle{empty}
+}%
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mathematical environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% equation counter setting %
+\numberwithin{equation}{chapter}
+
+% Theorem environment setting %
+\newtheoremstyle{SeknieLabStyle}
+{}%
+{}%
+{\normalfont}%
+{}%
+{\bfseries}%
+{}%
+{ }%
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%
+
+\theoremstyle{SeknieLabStyle}%
+
+\newtheorem{Axi}{公理}[chapter]% % Axiom
+\newtheorem{Cor}[Axi]{系}%       % Corollary
+\newtheorem{Def}[Axi]{定義}%     % Definition
+\newtheorem{Lem}[Axi]{補題}%     % Lemma
+\newtheorem{Prop}[Axi]{命題}%    % Proposition
+\newtheorem{Thm}[Axi]{定理}%     % Theorem
+\newtheorem{Conj}[Axi]{予想}%    % Conjecture
+\newtheorem{Exam}[Axi]{例}%      % Example 
+\newtheorem{Rem2}[Axi]{注意}%    % Remark (This charctor set for JSIAM)
+
+% Proof environment setting %
+\makeatletter
+\newenvironment{Proof}{\par%
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax%
+  \trivlist%
+  \item\relax%
+  {\textbf{証明}}\hskip 1\zw%
+}{%
+  \popQED\endtrivlist\@endpefalse%
+}%
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Listing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Listing environment setting %
+\makeatletter
+\lstset{%
+  captionpos=t,%
+  backgroundcolor=\color[rgb]{0.95,0.95,0.92},%
+  commentstyle=\color{Green},%
+  keywordstyle=\color{Magenta},%
+  numberstyle=\tiny\color{gray},%
+  stringstyle=\color{violet},%
+  basicstyle=\ttfamily\footnotesize,%
+  breakatwhitespace=false,%
+  breaklines=true,%
+  keepspaces=true,%
+  numbers=left,%
+  numbersep=5pt,%
+  showspaces=false,%
+  showstringspaces=false,%
+  showtabs=false,%
+  tabsize=4,%
+  frame={tb},%
+}
+\makeatother
+
+% Listing caption name setting %
+\renewcommand{\lstlistingname}{ソースコード}%
+
+% Listing caption number setting %
+\makeatletter
+	\AtBeginDocument{%
+    \renewcommand*{\thelstlisting}{\arabic{lstlisting}}%
+    \@addtoreset{lstlisting}{section}%
+  }%
+\makeatother
